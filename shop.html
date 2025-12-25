@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boutique officielle Wyvern E-sport. Équipez-vous comme des pros.">
+    
+    <title id="page-title">Shop - Wyvern</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+
+    <div class="transparent-header">
+        <button id="language-btn" class="language-btn">Fr</button>
+        <button id="cart-btn" class="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count" class="cart-count">0</span>
+        </button>
+    </div>
+
+    <header class="shop-hero">
+        <h1 id="shop-title">Armurerie</h1>
+        <p>L'équipement des champions</p>
+    </header>
+
+    <section id="shop">
+        <div class="shop-grid">
+            
+            <a href="produit.html" class="shop-card">
+                <div class="shop-card-image">
+                    <img src="Produit/maillotnoir_F.png" alt="T-shirt Wyvern" loading="lazy">
+                </div>
+                <div class="shop-card-info">
+                    <h3 id="product1-title" class="shop-card-title">T-shirt Wyvern</h3>
+                    <span id="product1-price" class="shop-card-price">79.99€</span>
+                    <span class="shop-btn">Voir le produit</span>
+                </div>
+            </a>
+
+            <a href="produit2.html" class="shop-card">
+                <div class="shop-card-image">
+                    <img src="Produit/vestenoir_F.png" alt="Veste Wyvern" loading="lazy">
+                </div>
+                <div class="shop-card-info">
+                    <h3 id="product2-title" class="shop-card-title">Veste Wyvern</h3>
+                    <span id="product2-price" class="shop-card-price">104.99€</span>
+                    <span class="shop-btn">Voir le produit</span>
+                </div>
+            </a>
+
+            
+
+
+        </div>
+    </section>
+
+    <div id="cart" class="cart">
+        <div class="cart-header">
+            <h2 id="cart-title">Votre Panier</h2>
+            <button id="close-cart-btn" class="close-cart-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items"></div>
+    </div>
+
+    <div id="remove-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2 id="remove-modal-title">Retirer un article</h2>
+            <p id="remove-item-name"></p>
+            <label for="quantity-select" id="remove-quantity-label">Quantité :</label>
+            <select id="quantity-select"></select>
+            <button id="confirm-remove-btn">Confirmer</button>
+        </div>
+    </div>
+
+    <nav class="floating-navbar">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+        </a>
+       
+        <a href="tournois.html" class="nav-item">
+            <i class="fas fa-trophy"></i>
+            <span>Tournois</span>
+        </a>
+        <a href="actualites.html" class="nav-item">
+            <i class="fas fa-newspaper"></i>
+            <span>News</span>
+        </a>
+         <a href="shop.html" class="nav-item">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Shop</span>
+        </a>
+    </nav>
+    
+
+</body>
+</html>

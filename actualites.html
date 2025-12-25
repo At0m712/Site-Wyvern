@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Suivez les dernières actualités de la team Wyvern : résultats, transferts et annonces officielles.">
+    
+    <title id="page-title">Actualités - Wyvern</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+
+    <div class="transparent-header">
+        <button id="language-btn" class="language-btn">Fr</button>
+        <button id="settings-btn" class="settings-btn">
+        <i class="fas fa-cog"></i>
+    </button>
+    </div>
+
+    <header class="news-hero">
+        <h1 id="news-title">Dernières Infos</h1>
+        <p>L'actualité brûlante de la Wyvern</p>
+    </header>
+
+    <section class="news">
+        <div class="news-grid">
+
+            <article class="news-card">
+                <div class="news-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <span id="news-1-date"></span>
+                </div>
+                <h3 id="news-1-title" class="news-title"></h3>
+                <p id="news-1-content" class="news-content">
+                    
+                </p>
+                <a href="#" class="read-more">Lire l'article &rarr;</a>
+            </article>
+
+            <article class="news-card">
+                <div class="news-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <span id="news-2-date"></span>
+                </div>
+                <h3 id="news-2-title" class="news-title"></h3>
+                <p id="news-2-content" class="news-content">
+                    
+                </p>
+                <a href="#" class="read-more">Lire l'article &rarr;</a>
+            </article>
+
+            <article class="news-card">
+                <div class="news-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <span id="news-3-date"></span>
+                </div>
+                <h3 id="news-3-title" class="news-title"></h3>
+                <p id="news-3-content" class="news-content">
+                    
+                </p>
+                <a href="#" class="read-more">Lire l'article &rarr;</a>
+            </article>
+
+        </div>
+    </section>
+
+    
+
+    <div id="news-modal" class="modal hidden">
+        <div class="modal-content news-modal-content">
+            <span class="close-news-btn">&times;</span>
+            <h2 id="modal-news-title"></h2>
+            <div id="modal-news-body"></div>
+        </div>
+    </div>
+
+    <nav class="floating-navbar">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+        </a>
+        
+        
+        
+        <a href="tournois.html" class="nav-item">
+            <i class="fas fa-trophy"></i>
+            <span>Tournois</span>
+        </a>
+        
+        <a href="actualites.html" class="nav-item">
+            <i class="fas fa-newspaper"></i>
+            <span>News</span>
+        </a>
+         <a href="shop.html" class="nav-item">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Shop</span>
+        </a>
+      </nav>
+        
+         <div id="settings-modal" class="settings-modal">
+    <div class="settings-content">
+        <span class="close-settings" >&times;</span>
+        <h2>Paramètres</h2>
+        
+        <div class="settings-option" id="modal-theme-toggle">
+            <span>Mode Sombre/Clair</span>
+            <i class="fas fa-adjust"></i>
+        </div>
+
+        <div class="settings-option" id="modal-lang-toggle">
+            <span>Langue : FR/EN</span>
+            <i class="fas fa-globe"></i>
+        </div>
+        
+        <a href="compte.html" style="text-decoration:none; color:white;">
+            <div class="settings-option">
+                <span>Mon Compte</span>
+                <i class="fas fa-user"></i>
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

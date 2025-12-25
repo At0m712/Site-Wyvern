@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">T-shirt Wyvern - Boutique</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+
+    <div class="transparent-header">
+        <button id="language-btn" class="language-btn">Fr</button>
+        <button id="cart-btn" class="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count" class="cart-count">0</span>
+        </button>
+    </div>
+
+    <section class="product-showcase">
+        
+       <div class="product-image-box carousel-wrapper">
+    <img src="Produit/maillotnoir_F.png" class="prod-img active" alt="T-shirt Face">
+    
+    <img src="Produit/maillotnoir_B.png" class="prod-img" alt="T-shirt Dos">
+    
+    <button class="mini-arrow prev">&lt;</button>
+    <button class="mini-arrow next">&gt;</button>
+</div>
+
+
+        <div class="product-info-box">
+            <a href="shop.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour à la boutique</a>
+            
+            <h1 id="product-title" class="product-main-title">T-shirt Wyvern</h1>
+            <span id="product-price1" class="product-main-price">79.99€</span>
+            
+            <p id="product-description" class="product-desc">
+                Ce T-shirt en coton affiche fièrement les couleurs de Wyvern. 
+                Coupe ajustée, matière respirante idéale pour les longues sessions de jeu ou pour supporter votre équipe en LAN.
+            </p>
+            
+            <div class="size-selector-group">
+                <label for="size" id="size-label" class="size-label">Choisir une taille :</label>
+                <select id="size" name="size" class="custom-select">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            
+            <button class="add-to-cart big-cart-btn" 
+                    data-product="T-shirt Wyvern" 
+                    data-price="79.99" 
+                    id="add-to-cart-btn">
+                <i class="fas fa-plus"></i> <span id="add-to-cart-text">Ajouter au panier</span>
+            </button>
+        </div>
+
+    </section>
+    
+    
+    
+
+    <div id="cart" class="cart">
+        <div class="cart-header">
+            <h2 id="cart-title">Votre Panier</h2>
+            <button id="close-cart-btn" class="close-cart-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items">
+            </div>
+        <p id="total-price" style="padding: 20px; font-weight: bold;"></p>
+    </div>
+
+    <div id="remove-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2 id="remove-modal-title">Retirer un article</h2>
+            <p id="remove-item-name"></p>
+            <label for="quantity-select" id="remove-quantity-label">Quantité :</label>
+            <select id="quantity-select"></select>
+            <button id="confirm-remove-btn">
+                <span id="confirm-remove-text">Confirmer</span>
+            </button>
+        </div>
+    </div>
+    
+    
+    
+
+    <nav class="floating-navbar">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+        </a>
+        
+        <a href="tournois.html" class="nav-item">
+            <i class="fas fa-trophy"></i>
+            <span>Tournois</span>
+        </a>
+        <a href="actualites.html" class="nav-item">
+            <i class="fas fa-newspaper"></i>
+            <span>News</span>
+        </a>
+         <a href="shop.html" class="nav-item active"> <i class="fas fa-shopping-bag"></i>
+            <span>Shop</span>
+        </a>
+        
+    </nav>
+
+</body>
+</html>
