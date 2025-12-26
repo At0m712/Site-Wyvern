@@ -31,45 +31,12 @@ body {
 }
 
 
-
-
-
 header {
     background: #222;
     display: fixed;
     justify-content: center; /* Centre le contenu horizontalement */
     align-items: center; /* Centre le contenu verticalement */
-    padding: 40px; /* Ajustez le padding si nécessaire */
-    position: relative; /* Nécessaire pour positionner le bouton hamburger */
 }
-
-header .logo {
-    flex: 1; /* Prend tout l'espace disponible */
-    text-align: center; /* Centre le texte dans le logo */
-}
-
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
-header nav ul li a:hover {
-    background: #d32f2f;
-    color: #000;
-}
-
-
-
-
 
 .hero-section {
     background: url('images/logowyvern.png') no-repeat center center/cover;
