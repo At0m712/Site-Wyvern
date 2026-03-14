@@ -1,5 +1,60 @@
-/* Importation de la police Bebas Neue */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    /*Couleurs*/
+    --wyvern-red: #d32f2f;
+    --wyvern-red-hover: #b71c1c;
+    --wyvern-green: #28a745;
+
+    /*THEME SOMBRE */
+    --bg-body: #1c1c1c;
+    --bg-header: rgba(2, 2, 2, 0.4);
+    --bg-card: #2a2a2a;
+    --bg-card-hover: #333333;
+    --bg-input: #1c1c1c;
+    --bg-modal: rgba(10, 10, 10, 0.98);
+
+    --text-main: #ffffff;
+    --text-secondary: #cccccc;
+    --text-muted: #888888;
+
+    --border-color: #444444;
+    --border-thin: rgba(255, 255, 255, 0.1);
+
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    --font-title: 'Bebas Neue', cursive;
+    --font-body: 'Roboto', sans-serif;
+
+    --radius-sm: 5px;
+    --radius-md: 10px;
+    --radius-lg: 15px;
+    
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+/*THEME CLAIR*/
+body.light-mode {
+    --bg-body: #f0f2f5;
+    --bg-header: rgba(255, 255, 255, 0.9);
+    --bg-card: #ffffff;
+    --bg-card-hover: #f9f9f9;
+    --bg-input: #f8f9fa;
+    --bg-modal: rgba(255, 255, 255, 0.98);
+
+    --text-main: #000000;
+    --text-secondary: #333333;
+    --text-muted: #555555;
+
+    --border-color: #cccccc;
+    --border-thin: rgba(0, 0, 0, 0.1);
+
+    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
 
 * {
     margin: 0;
@@ -13,20 +68,20 @@
 body {
     background-color: #1c1c1c;
     color: #ffffff;
-    margin: 0; /* On s'assure qu'il n'y a pas de marge par défaut */
+    margin: 0;
     
-    /* LE MOTIF GRILLE (Style Tactique) */
+   
     background-image: 
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     
-    /* Taille des carrés : 80px (Plus gros pour un effet plus léger) */
+   
     background-size: 120px 120px; 
     
-    /* Le fond reste fixe quand on scroll (Effet de profondeur) */
+   
     background-attachment: fixed; 
     
-    /* IMPORTANT : Espace vide en bas pour que la barre flottante ne cache pas le contenu */
+   
     padding-bottom: 150px; 
 }
 
@@ -37,15 +92,15 @@ body {
 header {
     background: #222;
     display: fixed;
-    justify-content: center; /* Centre le contenu horizontalement */
-    align-items: center; /* Centre le contenu verticalement */
-    padding: 40px; /* Ajustez le padding si nécessaire */
-    position: relative; /* Nécessaire pour positionner le bouton hamburger */
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
 }
 
 header .logo {
-    flex: 1; /* Prend tout l'espace disponible */
-    text-align: center; /* Centre le texte dans le logo */
+    flex: 1;
+    text-align: center;
 }
 
 
@@ -90,7 +145,7 @@ header nav ul li a:hover {
 }
 
 .hero-text .btn {
-    background: #d32f2f ; /* Rouge */
+    background: #d32f2f ;
     color: #fff;
     padding: 15px 30px;
     text-decoration: none;
@@ -112,7 +167,7 @@ header nav ul li a:hover {
 .about-section h2, .teams-section h2 {
     margin-bottom: 30px;
     font-size: 2.5em;
-    color: #d32f2f; /* Rouge */
+    color: #d32f2f;
 }
 
 .teams-container {
@@ -131,7 +186,7 @@ header nav ul li a:hover {
 }
 
 .team-card h3 {
-    color: #d32f2f; /* Rouge */
+    color: #d32f2f;
     margin-bottom: 10px;
 }
 
@@ -168,11 +223,11 @@ header nav ul li a:hover {
 }
 
 .player-card h3 {
-    color: #d32f2f; /* Rouge */
+    color: #d32f2f;
     margin-bottom: 10px;
 }
 
-/* Liens invisibles */
+
 .invisible-link {
     position: absolute;
     width: 100%;
@@ -185,7 +240,7 @@ header nav ul li a:hover {
     color: transparent;
 }
 
-/* Position des liens invisibles dans les team-cards */
+
 .team-card {
     position: relative;
 }
@@ -205,11 +260,11 @@ header nav ul li a:hover {
 }
 
 .carousel-item img {
-    width: 300px; /* Largeur de l'image */
-    height: 450px; /* Hauteur de l'image */
-    border-radius: 15px; /* Coins arrondis */
-    object-fit: cover; /* Recadre l'image si nécessaire pour remplir */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Ajout d'une légère ombre pour donner du relief */
+    width: 300px;
+    height: 450px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-item.active {
@@ -269,7 +324,7 @@ header nav ul li a:hover {
     display: block;
 }
 
-/* News List Styles for Actualité Page */
+
 .news {
     margin-top: 120px;
     
@@ -290,38 +345,38 @@ header nav ul li a:hover {
     transform: scale(1.03);
 }
 
-/* Résultats des tournois */
 
-/* Supprime la lueur rouge du titre de la page tournois */
+
+
 #tournaments-title, 
 .tournament-hero h1 {
-    text-shadow: none !important; /* Enlève l'ombre portée du texte */
-    box-shadow: none !important;  /* Enlève l'ombre portée du bloc si elle existe */
+    text-shadow: none !important;
+    box-shadow: none !important; 
 }
 
 #resultats-tournois {
-    background-color: #f4f4f4; /* Couleur plus claire */
+    background-color: #f4f4f4;
     padding: 30px 20px;
 }
 
 #resultats-tournois h2 {
     font-size: 32px;
     margin-bottom: 30px;
-    color: #222; /* Texte plus foncé pour contraste */
+    color: #222;
 }
 
 
 .resultats-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Layout en grille fluide */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    justify-items: center; /* Aligne les éléments au centre */
+    justify-items: center;
 }
 
 .resultat-card {
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* Ombre plus légère */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     padding: 25px;
     transition: transform 0.2s, box-shadow 0.2s;
     width: 100%;
@@ -331,8 +386,8 @@ header nav ul li a:hover {
 }
 
 .resultat-card:hover {
-    transform: translateY(-3px); /* Légère élévation */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Augmentation de l'ombre au survol */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .resultat-card h3 {
@@ -348,25 +403,25 @@ header nav ul li a:hover {
 
 
 
-    /* Styles de la nouvelle entête */
+   
 .transparent-header {
-    position: fixed; /* Reste fixe en haut de l'écran */
-    top: 0px; /* Positionne juste en dessous de l'ancienne entête */
+    position: fixed;
+    top: 0px;
     left: 0;
     right: 0;
-    height: 80px; /* Hauteur de la nouvelle entête */
-    background-color: rgba(2, 2, 2, 0.4); /* Couleur de fond transparente */
+    height: 80px;
+    background-color: rgba(2, 2, 2, 0.4);
     display: flex;
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
-    z-index: 999; /* S'assure qu'il est au-dessus du contenu */
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
 }
 
 
-/* --- Bouton Langue (Retour à l'ancien design rouge) --- */
+
 .language-btn {
-    background-color: #d32f2f; /* Fond rouge */
-    color: white; /* Couleur du texte */
+    background-color: #d32f2f;
+    color: white;
     font-size: 24px;
     cursor: pointer;
     position: absolute;
@@ -375,21 +430,21 @@ header nav ul li a:hover {
     padding: 8px 14px;
     border: none;
     
-    /* Forme spécifique */
+   
     border-radius: 6px;
     border-bottom-left-radius: 13px;
     border-bottom-right-radius: 13px;
     clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
     
-    /* S'assurer qu'il est au-dessus des autres éléments */
+   
     z-index: 1001;
     font-family: 'Bebas Neue', sans-serif;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .language-btn:hover {
-    background-color: #b71c1c; /* Rouge plus foncé au survol */
-    transform: none; /* Pas de mouvement */
+    background-color: #b71c1c;
+    transform: none;
     border: none;
     box-shadow: none;
 }
@@ -398,23 +453,23 @@ header nav ul li a:hover {
 .cart-btn {
     background-color: transparent;
     border: none;
-    color: white; /* Changez cette couleur selon vos besoins */
+    color: white;
     font-size: 24px;
     cursor: pointer;
     position: absolute;
-    right: 20px; /* Place le bouton à droite */
-    top: 20px; /* Ajustez selon vos besoins */
+    right: 20px;
+    top: 20px;
     padding: 8px;
     border-radius: 10px;
 }
 
 .cart-btn i {
-    font-size: 24px; /* Taille de l'icône */
-    color: white; /* Couleur de l'icône */
+    font-size: 24px;
+    color: white;
 }
 
 .cart-btn:hover i {
-    color: red; /* Change la couleur de l'icône au survol */
+    color: red;
 }
 
 
@@ -430,7 +485,7 @@ header nav ul li a:hover {
     font-size: 0.8em;
 }
 
-/* Style pour le bouton d'ajout au panier */
+
 .add-to-cart {
     background-color: #333;
     color: white;
@@ -454,36 +509,36 @@ header nav ul li a:hover {
 
 
 h2 {
-    color: #333; /* Couleur du titre */
-    font-size: 24px; /* Taille de police */
-    margin: 0 0 15px 0; /* Marge inférieure */
+    color: #333;
+    font-size: 24px;
+    margin: 0 0 15px 0;
 }
 
 label {
-    color: #555; /* Couleur de l'étiquette */
-    font-size: 16px; /* Taille de police */
+    color: #555;
+    font-size: 16px;
 }
 
 select {
-    width: 100%; /* Largeur complète */
-    padding: 10px; /* Espacement intérieur */
-    margin: 15px 0; /* Marge verticale */
-    border: 1px solid #ccc; /* Bord léger */
-    border-radius: 5px; /* Bords arrondis */
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
-    background-color: #d32f2f; /* Couleur principale */
-    color: white; /* Texte blanc */
-    border: none; /* Pas de bord */
-    border-radius: 5px; /* Bords arrondis */
-    padding: 10px 20px; /* Espacement intérieur */
-    cursor: pointer; /* Curseur pointeur */
-    font-size: 16px; /* Taille de police */
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: red; /* Couleur plus sombre au survol */
+    background-color: red;
 }
 
 
@@ -543,7 +598,7 @@ select {
 
 
 
-/* Ajouter des transitions pour les changements de mode */
+
 body {
     transition: background-color 0.4s, color 0.3s;
 }
@@ -556,33 +611,33 @@ button {
 
 
 
-/* --- Barre de Navigation Flottante --- */
+
 .floating-navbar {
     position: fixed;
-    bottom: 20px; /* Distance du bas */
+    bottom: 20px;
     left: 50%;
-    transform: translateX(-50%); /* Centre la barre horizontalement */
+    transform: translateX(-50%);
     
     width: 90%;
-    max-width: 500px; /* Largeur maximale pour que ce soit joli sur PC */
+    max-width: 500px;
     
-    background-color: rgba(34, 34, 34, 0.95); /* Fond sombre semi-transparent */
-    backdrop-filter: blur(10px); /* Effet de flou (Glassmorphism) */
+    background-color: rgba(34, 34, 34, 0.95);
+    backdrop-filter: blur(10px);
     
     display: flex;
     justify-content: space-around;
     align-items: center;
     
     padding: 15px 20px;
-    border-radius: 50px; /* Bords très arrondis (forme de pilule) */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Ombre portée */
-    border: 1px solid #444; /* Légère bordure */
-    z-index: 998; /* Juste en dessous du panier (qui est à 1000) */
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #444;
+    z-index: 998;
 }
 
-/* Style des liens */
+
 .nav-item {
-    color: #bbb; /* Gris clair par défaut */
+    color: #bbb;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -592,34 +647,32 @@ button {
     position: relative;
 }
 
-/* Style des icônes */
+
 .nav-item i {
     font-size: 20px;
     margin-bottom: 5px;
     transition: transform 0.3s ease;
 }
 
-/* Effet au survol et actif */
+
 .nav-item:hover, .nav-item.active {
-    color: #d32f2f; /* Votre rouge Wyvern */
+    color: #d32f2f;
 }
 
 .nav-item:hover i {
-    transform: translateY(-3px); /* L'icône monte un peu */
+    transform: translateY(-3px);
 }
 
-/* Ajustement pour mobile : éviter que le footer soit caché par la barre */
+
 footer {
-    padding-bottom: 100px; /* Espace supplémentaire en bas */
+    padding-bottom: 100px;
 }
 
-/* =========================================
-   NOUVEAU DESIGN TOURNOIS (CYBER-SPORT)
-   ========================================= */
 
-/* --- 1. Bannière "Hero" News --- */
+
+
 .tournament-hero {
-    background: transparent; /* Fond transparent */
+    background: transparent;
     padding: 60px 20px;
     display: flex;
     flex-direction: column;
@@ -627,16 +680,16 @@ footer {
     align-items: center;
     text-align: center;
     
-    margin-top: 80px; /* Espace pour le header */
+    margin-top: 80px;
     margin-bottom: 40px;
 }
 
 
 .tournament-hero h1 {
-    font-size: 4em; /* Titre un peu plus petit pour être élégant */
+    font-size: 4em;
     color: white;
     text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(211, 47, 47, 0.5); /* Lueur rouge plus douce */
+    text-shadow: 0 0 10px rgba(211, 47, 47, 0.5);
     margin: 0 0 10px 0;
 }
 
@@ -648,13 +701,13 @@ footer {
 }
 
 
-/* --- 2. Titres de sections --- */
+
 .section-header {
     text-align: center;
     margin-bottom: 30px;
 }
 
-/* --- 3. Sélecteur de Jeux (Onglets) --- */
+
 .game-selector {
     display: flex;
     justify-content: center;
@@ -686,7 +739,7 @@ footer {
     box-shadow: 0 0 15px rgba(211, 47, 47, 0.5);
 }
 
-/* --- 4. Cartes de détails (Tournois) --- */
+
 .tournament-details-card {
     background: rgba(30, 30, 30, 0.6);
     backdrop-filter: blur(10px);
@@ -704,7 +757,7 @@ footer {
     display: block;
 }
 
-/* Structure interne de la carte */
+
 .card-header-flex {
     display: flex;
     justify-content: space-between;
@@ -756,7 +809,7 @@ footer {
     color: #d32f2f;
 }
 
-/* --- 5. Section Résultats (Leaderboard) --- */
+
 .results-section {
     padding-bottom: 150px;
     background: #181818;
@@ -819,12 +872,10 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* =========================================
-   DESIGN SHOP ÉPURÉ (Style "Light & Flat")
-   ========================================= */
-/* --- 1. Bannière "Hero" News --- */
+
+
 .shop-hero {
-    background: transparent; /* Fond transparent */
+    background: transparent;
     padding: 60px 20px;
     display: flex;
     flex-direction: column;
@@ -832,68 +883,68 @@ footer {
     align-items: center;
     text-align: center;
     
-    margin-top: 80px; /* Espace pour le header */
+    margin-top: 80px;
     margin-bottom: 40px;
 }
 
 .shop-hero h1 {
-    font-size: 3em; /* Titre un peu plus petit */
+    font-size: 3em;
     color: white;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin: 0 0 5px 0;
-    /* Plus d'ombre portée rouge */
+   
 }
 
 .shop-hero p {
     font-size: 1.1em;
-    color: #999; /* Gris plus clair */
+    color: #999;
     letter-spacing: 1px;
     margin: 0;
 }
 
-/* --- 2. Grille de Produits (Toujours 2 colonnes) --- */
+
 .shop-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Force 2 colonnes */
-    gap: 30px; /* Espace net entre les produits */
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
     padding: 0 15px 150px 15px;
     max-width: 1000px;
     margin: 0 auto;
 }
 
-/* --- 3. Carte Produit (Style "Flat" Minimaliste) --- */
+
 .shop-card {
-    /* PLUS AUCUN CADRE NI FOND */
+   
     background: transparent;
     border: none;
     border-radius: 0;
     box-shadow: none;
-    overflow: visible; /* Laisse le contenu respirer */
+    overflow: visible;
     
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centre tout le contenu */
+    align-items: center;
     position: relative;
-    transition: transform 0.2s ease; /* Juste un petit mouvement au survol */
+    transition: transform 0.2s ease;
 }
 
-/* Effet au survol très léger */
+
 .shop-card:hover {
-    transform: translateY(-3px); /* Remonte à peine */
-    /* Pas d'ombre, pas de changement de couleur */
+    transform: translateY(-3px);
+   
 }
 
-/* Image Produit (Directe, sans conteneur coloré) */
+
 .shop-card-image {
     width: 100%;
-    height: auto; /* La hauteur s'adapte */
-    max-height: 350px; /* Limite pour ne pas être géant */
+    height: auto;
+    max-height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent; /* Fond transparent */
+    background: transparent;
     margin-bottom: 15px;
 }
 
@@ -901,16 +952,16 @@ footer {
     max-width: 100%;
     height: auto;
     object-fit: contain;
-    /* Plus d'effet de rotation ou de zoom exagéré */
+   
     transition: opacity 0.2s;
-    filter: none; /* Plus d'ombre portée sur l'image */
+    filter: none;
 }
 
 .shop-card:hover .shop-card-image img {
-    opacity: 0.9; /* Petit effet visuel simple */
+    opacity: 0.9;
 }
 
-/* Informations du produit */
+
 .shop-card-info {
     padding: 0 10px;
     text-align: center;
@@ -921,42 +972,42 @@ footer {
 }
 
 .shop-card-title {
-    font-size: 1.4em; /* Un peu plus petit pour être élégant */
+    font-size: 1.4em;
     color: white;
     margin-bottom: 12px;
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 0.5px;
-    /* Style italique comme sur votre exemple */
+   
     font-style: italic; 
     line-height: 1.1;
 }
 
-/* Prix (Style "Badge" comme sur l'exemple) */
+
 .shop-card-price {
     font-size: 1.2em;
-    color: white; /* Texte blanc */
+    color: white;
     font-weight: bold;
     
-    background-color: #d32f2f; /* Fond ROUGE (votre couleur) */
-    padding: 5px 15px; /* Espace autour du prix */
-    border-radius: 4px; /* Coins légèrement arrondis */
+    background-color: #d32f2f;
+    padding: 5px 15px;
+    border-radius: 4px;
     
     display: inline-block;
     margin-bottom: 0;
 }
 
-/* Le bouton "Voir" est caché car inutile (toute la carte est cliquable) */
+
 .shop-btn {
     display: none;
 }
 
-/* --- Ajustement Mobile --- */
+
 @media (max-width: 768px) {
     .shop-grid {
-        gap: 15px; /* Moins d'espace entre les produits */
+        gap: 15px;
     }
     .shop-card-title {
-        font-size: 1.1em; /* Titre encore plus petit */
+        font-size: 1.1em;
     }
     .shop-card-price {
         font-size: 1em;
@@ -964,12 +1015,10 @@ footer {
     }
 }
 
-/* =========================================
-   DESIGN ACTUALITÉS (Style "Flat & Clean")
-   ========================================= */
-/* --- 1. Bannière "Hero" News --- */
+
+
 .news-hero {
-    background: transparent; /* Fond transparent */
+    background: transparent;
     padding: 60px 20px;
     display: flex;
     flex-direction: column;
@@ -977,30 +1026,30 @@ footer {
     align-items: center;
     text-align: center;
     
-    margin-top: 80px; /* Espace pour le header */
+    margin-top: 80px;
     margin-bottom: 40px;
 }
 
 
-/* --- 2. Grille des Articles --- */
+
 .news-grid {
     display: grid;
-    /* Création automatique de colonnes selon la taille de l'écran */
+   
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    padding: 0 20px 150px 20px; /* Padding bas pour la barre flottante */
+    padding: 0 20px 150px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
-/* --- 3. Carte Actualité (Version plus Lisible) --- */
+
 .news-card {
-    /* Fond beaucoup plus opaque et sombre pour la lisibilité */
+   
     background: #2a2a2a; 
     
-    /* Bordure grise visible pour la démarcation */
+   
     border: 1px solid #444;
     
-    /* Ombre pour détacher la carte du fond */
+   
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     
     border-radius: 12px;
@@ -1008,28 +1057,28 @@ footer {
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
-    border-left: 4px solid #444; /* Bordure gauche grise par défaut */
+    border-left: 4px solid #444;
 }
 
-/* Effet au survol */
+
 .news-card:hover {
     transform: translateY(-5px);
-    background: #333; /* S'éclaircit légèrement au survol */
-    border-color: #555; /* La bordure contour s'éclaircit */
-    border-left-color: #d32f2f; /* La barre latérale devient rouge */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* L'ombre grandit */
+    background: #333;
+    border-color: #555;
+    border-left-color: #d32f2f;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* On force la couleur du texte pour être sûr que c'est lisible */
+
 .news-content {
-    color: #e0e0e0; /* Gris très clair, presque blanc */
+    color: #e0e0e0;
     font-size: 1.1em;
     line-height: 1.6;
     margin-bottom: 20px;
     flex-grow: 1;
 }
 
-/* Date (Style Badge) */
+
 .news-date {
     font-size: 0.9em;
     color: #bbb;
@@ -1043,7 +1092,7 @@ footer {
     color: #d32f2f;
 }
 
-/* Titre de l'article */
+
 .news-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2em;
@@ -1054,7 +1103,7 @@ footer {
 
 
 
-/* Lien "Lire la suite" (optionnel, pour le style) */
+
 .read-more {
     color: #d32f2f;
     font-weight: bold;
@@ -1064,23 +1113,21 @@ footer {
     letter-spacing: 1px;
 }
 
-/* =========================================
-   PAGE PRODUIT (Design "Showcase")
-   ========================================= */
 
-/* Conteneur principal centré */
+
+
 .product-showcase {
     max-width: 1100px;
-    margin: 100px auto 150px auto; /* Marges pour header et footer */
+    margin: 100px auto 150px auto;
     padding: 0 20px;
     display: flex;
-    align-items: center; /* Aligné verticalement au centre */
-    gap: 60px; /* Espace entre image et texte */
+    align-items: center;
+    gap: 60px;
 }
 
-/* --- Partie Gauche : Image --- */
+
 .product-image-box {
-    flex: 1; /* Prend 50% de l'espace */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1092,7 +1139,7 @@ footer {
     max-width: 500px;
     height: auto;
     object-fit: contain;
-    /* Petit effet de flottement */
+   
     
     transition: transform 0.3s ease;
     
@@ -1102,13 +1149,13 @@ footer {
     transform: scale(1.05) rotate(-2deg);
 }
 
-/* --- Partie Droite : Infos --- */
+
 .product-info-box {
-    flex: 1; /* Prend les autres 50% */
+    flex: 1;
     text-align: left;
 }
 
-/* Lien retour */
+
 .back-link {
     color: #999;
     text-decoration: none;
@@ -1119,7 +1166,7 @@ footer {
 }
 .back-link:hover { color: white; }
 
-/* Titre */
+
 .product-main-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3.5em;
@@ -1129,7 +1176,7 @@ footer {
     letter-spacing: 1px;
 }
 
-/* Prix */
+
 .product-main-price {
     font-size: 2em;
     color: #d32f2f;
@@ -1138,17 +1185,17 @@ footer {
     display: block;
 }
 
-/* Description */
+
 .product-desc {
     color: #ccc;
     font-size: 1.1em;
     line-height: 1.6;
     margin-bottom: 30px;
-    border-left: 2px solid #333; /* Petite ligne décorative */
+    border-left: 2px solid #333;
     padding-left: 15px;
 }
 
-/* --- Sélecteur de Taille Stylisé --- */
+
 .size-selector-group {
     margin-bottom: 30px;
 }
@@ -1160,7 +1207,7 @@ footer {
     font-weight: bold;
 }
 
-/* On stylise le select pour qu'il ne fasse pas "vieux Windows" */
+
 .custom-select {
     background-color: #2a2a2a;
     color: white;
@@ -1178,7 +1225,7 @@ footer {
     border-color: #d32f2f;
 }
 
-/* --- Bouton Ajouter au Panier (Gros et Rouge) --- */
+
 .big-cart-btn {
     background-color: #d32f2f;
     color: white;
@@ -1187,7 +1234,7 @@ footer {
     font-size: 1.2em;
     font-weight: bold;
     text-transform: uppercase;
-    border-radius: 4px; /* Un peu carré pour le style "Tech" */
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
@@ -1204,10 +1251,10 @@ footer {
     box-shadow: 0 0 20px rgba(211, 47, 47, 0.4);
 }
 
-/* Responsive Mobile */
+
 @media (max-width: 768px) {
     .product-showcase {
-        flex-direction: column; /* On empile tout sur mobile */
+        flex-direction: column;
         gap: 30px;
         margin-top: 80px;
     }
@@ -1218,53 +1265,51 @@ footer {
         font-size: 2.5em;
     }
     .product-info-box {
-        text-align: center; /* Centré sur mobile */
+        text-align: center;
     }
     .product-desc {
         border-left: none;
         padding-left: 0;
     }
     .custom-select, .big-cart-btn {
-        max-width: 100%; /* Pleine largeur sur mobile */
+        max-width: 100%;
     }
 }
 
-/* =========================================
-   DESIGN PANIER : PLEINE PAGE (Full Screen)
-   ========================================= */
 
-/* 1. Conteneur Principal (Prend tout l'écran) */
+
+
 .cart {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(24, 24, 24, 0.98); /* Fond sombre presque opaque */
-    backdrop-filter: blur(10px); /* Flou sur l'arrière-plan du site */
+    background-color: rgba(24, 24, 24, 0.98);
+    backdrop-filter: blur(10px);
     z-index: 9999;
     
-    /* Flexbox pour organiser Header / Items / Total */
+   
     display: flex;
     flex-direction: column;
     
-    /* Animation d'apparition (Fondu) */
+   
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s ease-in-out;
 }
 
-/* L'état "Ouvert" géré par le Javascript */
+
 .cart.open {
     opacity: 1;
     visibility: visible;
 }
 
-/* 2. En-tête du panier (Centré et large) */
+
 .cart-header {
     width: 100%;
-    max-width: 900px; /* On limite la largeur pour que ce soit lisible */
-    margin: 0 auto; /* Centré horizontalement */
+    max-width: 900px;
+    margin: 0 auto;
     padding: 30px 20px;
     display: flex;
     justify-content: space-between;
@@ -1273,68 +1318,68 @@ footer {
 }
 
 .cart-header h2 {
-    font-size: 2.5em; /* Titre plus gros */
+    font-size: 2.5em;
     color: white;
     margin: 0;
     text-transform: uppercase;
     font-family: 'Bebas Neue', sans-serif;
 }
 
-/* Bouton "Fermer" (Croix) - Style Minimaliste & Animé */
+
 .close-cart-btn {
-    /* Positionnement absolu pour être bien calé en haut à droite de l'écran */
+   
     position: absolute;
     top: 20px;
     right: 30px;
     
-    /* Apparence : Pas de fond, pas de bordure */
+   
     background: transparent; 
     border: none;
     
-    /* La croix elle-même */
+   
     color: white; 
-    font-size: 2.5em; /* Assez grand pour être facile à cliquer */
+    font-size: 2.5em;
     cursor: pointer;
-    line-height: 1; /* Évite les décalages verticaux */
+    line-height: 1;
     
-    /* Animation fluide pour la couleur et la rotation */
+   
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
-/* Au survol : Tourne + Devient Rouge */
+
 .close-cart-btn:hover {
-    background: transparent; /* Toujours pas de fond */
-    color: #d32f2f; /* Rouge Wyvern */
-    transform: rotate(180deg); /* Rotation complète demi-tour */
+    background: transparent;
+    color: #d32f2f;
+    transform: rotate(180deg);
 }
 
 
 
 
-/* 3. Zone des Articles (Centrée) */
+
 .cart-items {
     flex-grow: 1;
     width: 100%;
-    max-width: 900px; /* Même largeur que le header */
+    max-width: 900px;
     margin: 0 auto;
-    overflow-y: auto; /* Scroll si nécessaire */
+    overflow-y: auto;
     padding: 20px;
     
-    /* Scrollbar discrète */
+   
     scrollbar-width: thin;
     scrollbar-color: #d32f2f transparent;
 }
 
-/* Style des items dans la liste */
+
 .cart-item {
-    background: rgba(255, 255, 255, 0.05); /* Fond léger pour chaque ligne */
+    background: rgba(255, 255, 255, 0.05);
     padding: 15px 20px;
     border-radius: 8px;
-    margin-bottom: 15px !important; /* Force l'espace */
+    margin-bottom: 15px !important;
     border: 1px solid #333 !important;
 }
 
-/* 4. Panier Vide (Icône et texte centrés) */
+
 #cart-empty-text {
     height: 100%;
     display: flex;
@@ -1346,7 +1391,7 @@ footer {
 }
 
 #cart-empty-text::before {
-    content: '\f07a'; /* Icône Caddie */
+    content: '\f07a';
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 5em;
@@ -1354,37 +1399,37 @@ footer {
     margin-bottom: 20px;
 }
 
-/* 5. Total (Design épuré avec trait dégradé) */
+
 #total-price {
     width: 100%;
-    /* Plus de fond noir, on laisse la transparence */
+   
     background: transparent;
     
-    /* On supprime l'ancienne bordure solide et l'ombre */
+   
     border: none;
     box-shadow: none;
     
-    /* LE TRAIT ROUGE DÉGRADÉ */
-    /* Cela crée une ligne qui est rouge au centre et devient transparente (invisible) sur les bords */
+   
+   
     background-image: linear-gradient(to right, transparent, #d32f2f, transparent);
     
-    /* On définit la taille du trait : 100% en largeur, 2px en hauteur */
+   
     background-size: 100% 2px;
     background-repeat: no-repeat;
-    background-position: top center; /* On le colle tout en haut du bloc */
+    background-position: top center;
     
-    /* Centrage du texte */
+   
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px; /* Espace confortable en bas de l'écran */
+    height: 100px;
     
-    /* Typographie */
-    font-size: 2.5em; /* Un peu plus grand car il n'y a plus de cadre */
+   
+    font-size: 2.5em;
     font-weight: bold;
     color: white;
     
-    /* Petite ombre sur le texte pour qu'il ressorte bien sur le fond */
+   
     text-shadow: 0 0 20px rgba(211, 47, 47, 0.5);
 }
 
@@ -1393,253 +1438,30 @@ footer {
 
 
 
-
-
-
-
-
-
-/* ============================================================
-   🌞 THÈME CLAIR (LIGHT MODE) - VERSION FINALE CORRIGÉE
-   ============================================================ */
-
-/* 1. FOND GLOBAL */
-body.light-mode {
-    background-color: #f0f2f5; /* Gris clair */
-    color: #111111; /* Texte noir */
-    
-    /* Grille inversée (noir très transparent) */
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-}
-
-/* 2. HEADER TRANSPARENT (Correction demandée : plus de fond gris) */
-body.light-mode header,
-body.light-mode .transparent-header {
-    background-color: transparent !important;
-    background: none !important;
-    border-bottom: none !important;
-}
-
-/* Icônes du header en NOIR */
-body.light-mode .cart-btn,
-body.light-mode .cart-btn i,
-body.light-mode .toggle-btn,
-body.light-mode .menu-btn {
-    color: #000000 !important;
-}
-body.light-mode .cart-btn:hover i {
-    color: #d32f2f !important;
-}
-
-/* 3. SHOP & PRODUITS (Correction demandée : Noms en noir) */
-/* La carte produit */
-body.light-mode .product {
-    background-color: #ffffff !important;
-    border: 1px solid #ccc !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08) !important;
-}
-
-/* TITRE DU PRODUIT EN NOIR */
-body.light-mode .product h3,
-body.light-mode .shop-card-title {
-    color: #000000 !important;
-    font-weight: bold;
-}
-
-/* Prix et description */
-body.light-mode .product p {
-    color: #333333 !important;
-}
-
-/* Liens sur les produits */
-body.light-mode .product a {
-    color: #000000 !important;
-    text-decoration: none;
-}
-
-/* 4. TOURNOIS & RÉSULTATS (Correction demandée) */
-/* Fond de la section résultats */
-body.light-mode #resultats-tournois {
-    background-color: #f0f2f5 !important;
-    color: #000 !important;
-}
-
-body.light-mode #resultats-tournois h2 {
-    color: #000000 !important;
-}
-
-/* Les onglets (Tabs) */
-body.light-mode .tab {
-    background-color: transparent;
-    color: #000000 !important;
-    border: 1px solid #000000 !important;
-}
-body.light-mode .tab:hover,
-body.light-mode .tab.active {
-    background-color: #d32f2f !important;
-    color: #ffffff !important;
-    border-color: #d32f2f !important;
-}
-
-/* Contenu des onglets (On enlève le fond gris foncé d'origine) */
-body.light-mode .tab-content {
-    background-color: transparent !important;
-    color: #000 !important;
-}
-
-/* Cartes de résultats */
-body.light-mode .resultat-card {
-    background-color: #ffffff !important;
-    border: 1px solid #ccc !important;
-    color: #000000 !important;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
-}
-body.light-mode .resultat-card h3 { color: #000000 !important; }
-body.light-mode .resultat-card p { color: #444444 !important; }
-
-/* 5. TITRES GÉNÉRAUX & SECTIONS */
-body.light-mode h1,
-body.light-mode h2,
-body.light-mode .hero-text h2,
-body.light-mode .section-title {
-    color: #000000 !important;
-    background: transparent !important;
-    text-shadow: none !important;
-}
-body.light-mode .hero-text p { color: #444 !important; }
-
-/* Sections À Propos / Équipes */
-body.light-mode .about-section,
-body.light-mode .teams-section {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-top: 1px solid #eee;
-}
-
-/* Cartes Team / News */
-body.light-mode .team-card,
-body.light-mode .player-card,
-body.light-mode .news-card,
-body.light-mode .news-item {
-    background-color: #ffffff !important;
-    border: 1px solid #ccc !important;
-    color: #000000 !important;
-}
-body.light-mode .team-card h3,
-body.light-mode .player-card h3,
-body.light-mode .news-title {
-    color: #000000 !important;
-}
-body.light-mode .news-content { color: #333 !important; }
-
-/* 6. PAGE PRODUIT DÉTAIL */
-body.light-mode .product-main-title,
-body.light-mode .product-info h2 { color: #000000 !important; }
-body.light-mode .product-desc,
-body.light-mode .product-info p { color: #333 !important; border-left-color: #999; }
-body.light-mode label, body.light-mode .size-label { color: #000 !important; }
-body.light-mode select, body.light-mode .custom-select {
-    background-color: #fff !important; color: #000 !important; border: 1px solid #999 !important;
-}
-
-/* 7. PANIER & NAV */
-body.light-mode .cart { background-color: rgba(255, 255, 255, 0.98) !important; }
-body.light-mode .cart-header h2 { color: #000 !important; }
-body.light-mode .cart-item { background: #f5f5f5 !important; color: #000 !important; border: 1px solid #ddd !important; }
-body.light-mode .cart-item strong { color: #000 !important; }
-body.light-mode #total-price { color: #000 !important; text-shadow: none; }
-body.light-mode .close-cart-btn { color: #000 !important; }
-
-body.light-mode .floating-navbar { background: #fff !important; border: 1px solid #bbb !important; }
-body.light-mode .nav-item { color: #555 !important; }
-body.light-mode .nav-item:hover, body.light-mode .nav-item.active { color: #d32f2f !important; }
-
-body.light-mode footer { background: #fff !important; color: #000 !important; border-top: 1px solid #ccc; }
-
-/* ============================================================
-   CORRECTIF BOUTON PANIER (Supprime le fond rouge au clic)
-   ============================================================ */
-
 .cart-btn,
 .cart-btn:hover, 
 .cart-btn:focus, 
 .cart-btn:active {
-    background-color: transparent !important; /* Force la transparence tout le temps */
+    background-color: transparent !important;
     border: none !important;
-    outline: none !important; /* Enlève le carré de sélection bleu/noir */
+    outline: none !important;
     box-shadow: none !important;
 }
 
-/* On s'assure que seule l'icône change de couleur (Blanc par défaut, Rouge au survol) */
+
 .cart-btn i {
     transition: transform 0.2s, color 0.3s;
 }
 
 .cart-btn:hover i {
-    color: #d32f2f; /* L'icône devient rouge, mais pas le fond */
+    color: #d32f2f;
     transform: scale(1.1);
 }
 
-/* ============================================================
-   🏆 CORRECTIF TOURNOIS & RÉSULTATS (LIGHT MODE)
-   ============================================================ */
 
-/* 1. LES ONGLETS DE JEUX (Fortnite, Overwatch...) */
-/* Par défaut (inactif) : Fond blanc, Texte et Icône NOIRS */
-body.light-mode .game-tab,
-body.light-mode .tab {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #cccccc !important;
-    font-weight: bold;
-}
 
-/* On force l'icône à l'intérieur à être noire aussi */
-body.light-mode .game-tab i,
-body.light-mode .tab i {
-    color: #000000 !important;
-}
 
-/* L'onglet ACTIF (Sélectionné) : Reste Rouge avec texte Blanc */
-body.light-mode .game-tab.active,
-body.light-mode .tab.active {
-    background-color: #d32f2f !important;
-    color: #ffffff !important;
-    border-color: #d32f2f !important;
-}
 
-body.light-mode .game-tab.active i,
-body.light-mode .tab.active i {
-    color: #ffffff !important;
-}
-
-/* 2. LA CARTE CENTRALE (Détails inscription) */
-body.light-mode .tournament-details-card {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #ddd !important;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
-}
-
-/* Titres et dates dans la carte */
-body.light-mode .card-title { color: #000000 !important; }
-body.light-mode .card-date { color: #555555 !important; }
-body.light-mode .card-status { color: #d32f2f !important; }
-
-/* L'icône géante en fond de carte (ex: manette) */
-/* On la met en gris très très clair pour ne pas gêner la lecture */
-body.light-mode .card-icon {
-    color: #000000 !important; 
-    opacity: 1 !important; 
-}
-
-/* ============================================================
-   👤 PAGE COMPTE & RÉSEAUX
-   ============================================================ */
-
-/* --- Conteneur Login --- */
 .account-container {
     padding: 40px 20px;
     display: flex;
@@ -1663,7 +1485,7 @@ body.light-mode .card-icon {
     font-size: 2em;
 }
 
-/* Champs de formulaire */
+
 .input-group {
     margin-bottom: 20px;
     text-align: left;
@@ -1697,7 +1519,7 @@ body.light-mode .card-icon {
 }
 .form-footer a { color: white; text-decoration: underline; }
 
-/* --- Section Réseaux Sociaux --- */
+
 .social-section {
     padding: 40px 20px;
     text-align: center;
@@ -1732,7 +1554,7 @@ body.light-mode .card-icon {
 .social-card h3 { color: #d32f2f; margin-bottom: 5px; }
 .social-card p { color: #999; font-size: 0.9em; }
 
-/* Couleurs spécifiques au survol */
+
 .social-card:hover { transform: translateY(-10px); }
 .social-card.discord:hover { background: #5865F2; border-color: #5865F2; }
 .social-card.x-social:hover { background: #000000; border-color: #000000; }
@@ -1743,34 +1565,11 @@ body.light-mode .card-icon {
 .social-card:hover h3, .social-card:hover p, .social-card:hover i { color: white; }
 
 
-/* --- 🌞 MODE CLAIR (LIGHT MODE) SPÉCIFIQUE --- */
-body.light-mode .login-card {
-    background: #ffffff;
-    border: 1px solid #ccc;
-    color: #000;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
 
-body.light-mode .input-group label { color: #000; font-weight: bold; }
-body.light-mode .input-group input {
-    background: #f9f9f9;
-    border: 1px solid #999;
-    color: #000;
-}
 
-body.light-mode .social-card {
-    background: #ffffff;
-    border: 1px solid #ccc;
-}
-body.light-mode .social-card i { color: #333; }
-body.light-mode .social-card p { color: #555; }
-
-/* ============================================================
-   EN-TÊTE SIMPLE (PAGE COMPTE)
-   ============================================================ */
 
 .account-header {
-    margin-top: 120px; /* Pousse le texte vers le bas pour ne pas être caché par le menu */
+    margin-top: 120px;
     text-align: center;
     margin-bottom: 40px;
     padding: 0 20px;
@@ -1778,7 +1577,7 @@ body.light-mode .social-card p { color: #555; }
 
 .account-header h1 {
     font-size: 3.5em;
-    color: #d32f2f; /* Rouge Wyvern */
+    color: #d32f2f;
     margin-bottom: 10px;
     line-height: 1;
 }
@@ -1789,80 +1588,60 @@ body.light-mode .social-card p { color: #555; }
     letter-spacing: 1px;
 }
 
-/* --- ADAPTATION LIGHT MODE --- */
-body.light-mode .account-header h1 {
-    color: #d32f2f; /* Reste rouge ou passe en noir #000 selon tes gouts */
-}
 
-body.light-mode .account-header p {
-    color: #444444; /* Gris foncé lisible */
-}
 
-/* ============================================================
-   RÉGLAGE SPÉCIFIQUE LOGO X (SVG)
-   ============================================================ */
 
-/* On cible l'icône <i> spécifique de la carte X */
+
+
 .social-card.x-social .custom-svg-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: none; /* Pas de fond parasite */
-    margin-bottom: 15px; /* Garde l'espacement comme les autres icônes */
+    background: none;
+    margin-bottom: 15px;
 }
 
-/* On cible le SVG à l'intérieur pour réduire sa taille */
+
 .social-card.x-social svg {
-    height: 1em; /* C'est ici qu'on règle la taille (plus petit que les 3em par défaut) */
+    height: 1em;
     width: auto;
 }
 
 
-/* ============================================================
-   OEIL MOT DE PASSE (SHOW/HIDE)
-   ============================================================ */
+
 
 .password-wrapper {
-    position: relative; /* Permet de positionner l'icône par rapport à ce bloc */
+    position: relative;
     width: 100%;
 }
 
 .password-wrapper input {
     width: 100%;
-    padding-right: 40px !important; /* Laisse de la place pour l'icône à droite */
+    padding-right: 40px !important;
 }
 
 .toggle-password {
     position: absolute;
     right: 15px;
     top: 50%;
-    transform: translateY(-50%); /* Centre verticalement parfaitement */
+    transform: translateY(-50%);
     cursor: pointer;
     color: #888;
     z-index: 10;
 }
 
 .toggle-password:hover {
-    color: #d32f2f; /* Rouge au survol */
-}
-
-/* Adaptation LIGHT MODE */
-body.light-mode .toggle-password {
-    color: #555;
-}
-body.light-mode .toggle-password:hover {
     color: #d32f2f;
 }
 
-body.light-mode .account-header p { color: #444; }
 
 
-/* Style pour la carte de vérification */
+
 #verify-email-card .profile-icon {
-    color: #ff9800; /* Orange pour l'avertissement */
+    color: #ff9800;
 }
 
-/* Bouton secondaire discret */
+
 #logout-verify-btn {
     text-decoration: underline;
     font-size: 0.9em;
@@ -1872,11 +1651,9 @@ body.light-mode .account-header p { color: #444; }
     color: #d32f2f;
 }
 
-/* ============================================================
-   👤 PAGE COMPTE - CSS COMPLET & FINAL
-   ============================================================ */
 
-/* --- 1. UTILITAIRES (Indispensable pour le JS) --- */
+
+
 .hidden {
     display: none !important;
 }
@@ -1889,26 +1666,26 @@ body.light-mode .account-header p { color: #444; }
     margin-top: 10px;
 }
 
-/* --- 2. CONTENEUR & CARTES --- */
+
 .account-container {
     padding: 40px 20px;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Évite que ça s'étire sur toute la hauteur */
+    align-items: flex-start;
     min-height: 60vh;
 }
 
 .login-card {
     background: #2a2a2a;
     padding: 40px;
-    border-radius: 16px; /* Arrondi moderne */
+    border-radius: 16px;
     border: 1px solid #444;
     width: 100%;
     max-width: 450px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5); /* Ombre profonde */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
     text-align: center;
     position: relative;
-    /* Animation d'apparition fluide */
+   
     animation: fadeIn 0.4s ease-out;
 }
 
@@ -1917,7 +1694,7 @@ body.light-mode .account-header p { color: #444; }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- 3. TYPOGRAPHIE --- */
+
 .form-title {
     color: #d32f2f;
     margin-bottom: 25px;
@@ -1951,7 +1728,7 @@ body.light-mode .account-header p { color: #444; }
     font-weight: bold;
 }
 
-/* --- 4. FORMULAIRES & INPUTS --- */
+
 .input-group {
     margin-bottom: 20px;
     text-align: left;
@@ -1967,7 +1744,7 @@ body.light-mode .account-header p { color: #444; }
 
 .input-group input {
     width: 100%;
-    padding: 14px 16px; /* Plus d'espace interne */
+    padding: 14px 16px;
     background: #1c1c1c;
     border: 1px solid #444;
     color: white;
@@ -1979,28 +1756,28 @@ body.light-mode .account-header p { color: #444; }
 
 .input-group input:focus {
     border-color: #d32f2f;
-    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2); /* Halo rouge au focus */
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
 }
 
-/* --- 5. OEIL MOT DE PASSE --- */
+
 .password-wrapper {
     position: relative;
     width: 100%;
 }
 
 .password-wrapper input {
-    padding-right: 45px !important; /* Place pour l'icône */
+    padding-right: 45px !important;
 }
 
 .toggle-password {
     position: absolute;
     right: 15px;
     top: 50%;
-    transform: translateY(-50%); /* Centrage vertical parfait */
+    transform: translateY(-50%);
     cursor: pointer;
     color: #888;
     z-index: 10;
-    padding: 5px; /* Zone de clic plus grande */
+    padding: 5px;
     transition: color 0.3s;
 }
 
@@ -2008,15 +1785,15 @@ body.light-mode .account-header p { color: #444; }
     color: #d32f2f;
 }
 
-/* --- 6. VUES SPÉCIFIQUES (PROFIL / VÉRIFICATION) --- */
-/* Icônes géantes */
+
+
 .profile-icon {
     font-size: 4em;
     margin-bottom: 20px;
     display: inline-block;
 }
 
-/* Texte email affiché */
+
 .profile-email {
     color: #eee;
     font-size: 1.2em;
@@ -2028,7 +1805,7 @@ body.light-mode .account-header p { color: #444; }
     border: 1px dashed #555;
 }
 
-/* Boutons secondaires (Déconnexion, etc.) */
+
 .logout-style {
     background-color: #444;
     transition: background 0.3s;
@@ -2037,12 +1814,12 @@ body.light-mode .account-header p { color: #444; }
     background-color: #666;
 }
 
-/* Carte de vérification (Icône Orange) */
+
 #verify-email-card .profile-icon {
     color: #ff9800;
 }
 
-/* --- 7. HEADER DE LA PAGE (TITRE) --- */
+
 .account-header {
     margin-top: 130px;
     text-align: center;
@@ -2066,82 +1843,19 @@ body.light-mode .account-header p { color: #444; }
     text-transform: uppercase;
 }
 
-/* ============================================================
-   🌞 MODE CLAIR (LIGHT MODE) - ADAPTATION
-   ============================================================ */
 
-body.light-mode .account-header h1 {
-    color: #d32f2f;
-    text-shadow: none;
-}
-body.light-mode .account-header p {
-    color: #444;
-}
 
-body.light-mode .login-card {
-    background: #ffffff !important;
-    border: 1px solid #ddd !important;
-    color: #000 !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-}
 
-body.light-mode .input-group label {
-    color: #000 !important;
-    font-weight: bold;
-}
 
-body.light-mode .input-group input {
-    background: #f8f9fa !important;
-    border: 1px solid #ccc !important;
-    color: #000 !important;
-}
 
-body.light-mode .input-group input:focus {
-    border-color: #d32f2f !important;
-    background: #fff !important;
-}
-
-body.light-mode .form-footer {
-    color: #555 !important;
-}
-body.light-mode .form-footer a {
-    color: #000 !important;
-}
-body.light-mode .form-footer a:hover {
-    color: #d32f2f !important;
-}
-
-body.light-mode .profile-email {
-    color: #333 !important;
-    background: #f0f0f0 !important;
-    border-color: #ccc !important;
-}
-
-body.light-mode .toggle-password {
-    color: #555 !important;
-}
-body.light-mode .toggle-password:hover {
-    color: #d32f2f !important;
-}
-
-/* Texte spécifique dans la carte vérification */
-body.light-mode #verify-email-card p strong {
-    color: #000 !important; /* L'email en noir */
-}
-
-/* ============================================================
-   MODALE ACTUALITÉS & UTILITAIRES
-   ============================================================ */
-
-/* 1. Classe utilitaire pour cacher les éléments (indispensable) */
 .hidden {
     display: none !important;
 }
 
-/* 2. Fond de la modale (Overlay noir) */
+
 .modal {
     position: fixed;
-    z-index: 2000; /* Au-dessus de tout */
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
@@ -2151,7 +1865,7 @@ body.light-mode #verify-email-card p strong {
     backdrop-filter: blur(4px);
 }
 
-/* 3. Contenu de la modale (La boîte) */
+
 .news-modal-content {
     background-color: #2a2a2a;
     margin: 5% auto;
@@ -2170,7 +1884,7 @@ body.light-mode #verify-email-card p strong {
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* 4. Éléments dans la modale */
+
 #modal-news-title {
     color: #d32f2f;
     font-family: 'Bebas Neue', cursive;
@@ -2186,7 +1900,7 @@ body.light-mode #verify-email-card p strong {
     color: #ddd;
 }
 
-/* 5. Bouton Fermer (X) */
+
 .close-news-btn {
     color: #aaa;
     float: right;
@@ -2201,33 +1915,22 @@ body.light-mode #verify-email-card p strong {
     color: #d32f2f;
 }
 
-/* --- ADAPTATION LIGHT MODE --- */
-body.light-mode .news-modal-content {
-    background-color: #ffffff;
-    border-color: #ccc;
-    color: #000;
-}
-body.light-mode #modal-news-title {
-    color: #000;
-    border-bottom-color: #eee;
-}
-body.light-mode #modal-news-body {
-    color: #333;
-}
+
+
 
 .card-btn {
-    text-decoration: none; /* Enlève le soulignement des liens */
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Supprimer la lueur rouge du titre principal */
+
 #tournaments-title {
     text-shadow: none !important;
 }
 
-/* Logos dans les onglets du haut */
+
 .game-logo {
     width: 25px;
     height: 25px;
@@ -2235,14 +1938,14 @@ body.light-mode #modal-news-body {
     margin-right: 10px;
 }
 
-/* Logos plus grands dans les cartes de détails */
+
 .card-game-logo {
     width: 80px;
     height: 80px;
     object-fit: contain;
 }
 
-/* Style pour que le lien ressemble à un bouton */
+
 .card-btn {
     display: block;
     text-align: center;
@@ -2259,9 +1962,9 @@ body.light-mode #modal-news-body {
     background-color: #b71c1c;
 }
 
-/* --- COULEURS DES BOUTONS PAR JEU --- */
 
-/* Fortnite : Bleu Epic Games */
+
+
 .btn-fortnite {
     background-color: #007bff !important;
 }
@@ -2270,7 +1973,7 @@ body.light-mode #modal-news-body {
     box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
 }
 
-/* Overwatch : Orange Overwatch */
+
 .btn-overwatch {
     background-color: #f99e1a !important;
 }
@@ -2279,7 +1982,7 @@ body.light-mode #modal-news-body {
     box-shadow: 0 0 15px rgba(249, 158, 26, 0.4);
 }
 
-/* Valorant : Rouge/Rose Valorant */
+
 .btn-valorant {
     background-color: #ff4655 !important;
 }
@@ -2288,149 +1991,136 @@ body.light-mode #modal-news-body {
     box-shadow: 0 0 15px rgba(255, 70, 85, 0.4);
 }
 
-/* Style commun pour le texte du bouton */
+
 .card-btn {
     transition: all 0.3s ease !important;
     border: none !important;
 }
 
-/* --- COULEURS DES BARRES LATÉRALES (DECORATION) --- */
 
-/* Barre latérale Fortnite (Bleu) */
+
+
 .card-fortnite::before {
     background: #007bff !important;
 }
 
-/* Barre latérale Overwatch (Orange) */
+
 .card-overwatch::before {
     background: #f99e1a !important;
 }
 
-/* Barre latérale Valorant (Rouge/Rose) */
+
 .card-valorant::before {
     background: #ff4655 !important;
 }
 
-/* --- OPTIONNEL : UNE LÉGÈRE BORDURE DE COULEUR --- */
+
 .card-fortnite { border-color: rgba(0, 123, 255, 1); }
 .card-overwatch { border-color: rgba(249, 158, 26, 1); }
 .card-valorant { border-color: rgba(255, 70, 85, 1); }
 
 
-/* --- HARMONISATION DES ONGLETS --- */
+
 .game-tab {
-    min-width: 120px;         /* Donne une largeur minimum égale pour tous */
+    min-width: 120px;        
     padding: 10px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    border-bottom: 3px solid transparent; /* Prépare la bordure du bas */
+    border-bottom: 3px solid transparent;
 }
 
-/* ========================================= */
-/* 1. VARIABLES & THÈMES (DARK / LIGHT)
-/* ========================================= */
+
+
 
 :root {
-    /* --- Couleurs WYVERN Identité --- */
-    --wyvern-red: #d32f2f; /* Le rouge signature */
+   
+    --wyvern-red: #d32f2f;
 
-    /* --- Thème SOMBRE (Défaut - Base) --- */
-    --bg-primary: #1c1c1c; /* Noir profond classe */
-    --bg-secondary: #141414; /* Pour des éléments légèrement détachés */
-    --text-primary: #ffffff; /* Blanc pur pour les titres */
-    --text-secondary: #a0a0a0; /* Gris élégant pour les sous-textes */
-    --border-thin: rgba(255, 255, 255, 0.1); /* Lignes de séparation subtiles */
-    /* Fond de la modale plein écran (presque opaque) */
+   
+    --bg-primary: #1c1c1c;
+    --bg-secondary: #141414;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --border-thin: rgba(255, 255, 255, 0.1);
+   
     --modal-bg-fullscreen: rgba(10, 10, 10, 0.98); 
 }
 
-/* --- Thème CLAIR (Activé via JS avec la classe .light-mode sur body) --- */
-body.light-mode {
-    --bg-primary: #ffffff; /* Blanc pur luxueux */
-    --bg-secondary: #f8f9fa; /* Gris très pâle */
-    --text-primary: #1a1a1a; /* Noir doux pour le contraste */
-    --text-secondary: #666666; /* Gris moyen */
-    --border-thin: rgba(0, 0, 0, 0.1);
-    --modal-bg-fullscreen: rgba(255, 255, 255, 0.98);
-}
 
-/* ========================================= */
-/* 2. STYLE DE BASE ÉPURÉ
-/* ========================================= */
+
+
 
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    /* Transition douce lors du changement de thème */
+   
     transition: background-color 0.4s ease, color 0.4s ease;
-    font-family: 'Roboto', sans-serif; /* Police de corps propre */
-    margin: 0; /* Reset important */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
 }
 
-/* Pour les titres "classe" */
+
 h1, h2, h3 {
     font-family: 'Bebas Neue', cursive;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
-/* ========================================= */
-/* 3. BOUTON PARAMÈTRES (HAUT DROITE)
-/* ========================================= */
+
+
 
 .settings-btn {
     position: absolute;
-    top: 25px;   /* Espace depuis le haut */
-    right: 30px; /* Espace depuis la droite */
-    z-index: 1500; /* Toujours au-dessus */
+    top: 25px;  
+    right: 30px;
+    z-index: 1500;
     
-    /* Style : Gros, sans fond */
+   
     background: transparent !important;
     border: none;
-    color: var(--text-primary); /* S'adapte automatiquement au thème */
-    font-size: 2.2rem; /* Taille imposante */
+    color: var(--text-primary);
+    font-size: 2.2rem;
     cursor: pointer;
     padding: 0;
     line-height: 1;
     
-    /* Animation fluide */
+   
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Au survol : devient rouge et tourne */
+
 .settings-btn:hover {
     color: var(--wyvern-red);
     transform: rotate(180deg);
 }
 
-/* Anti-focus pour ne pas avoir de cadre moche au clic */
+
 .settings-btn:focus, .settings-btn:active { outline: none; }
 
-/* ========================================= */
-/* 4. MODALE PLEIN ÉCRAN (STYLE CLASSE)
-/* ========================================= */
+
+
 
 .settings-modal {
-    display: none; /* Géré par le JS */
+    display: none;
     position: fixed;
     z-index: 2000;
     top: 0; left: 0;
     width: 100%; height: 100%;
     
-    /* Fond utilisant la variable de thème */
+   
     background-color: var(--modal-bg-fullscreen);
     
-    /* Animation d'entrée */
+   
     opacity: 0;
     animation: fadeInFull 0.4s forwards;
 }
 
 @keyframes fadeInFull { to { opacity: 1; } }
 
-/* Conteneur Flex pour centrer le contenu */
+
 .settings-content {
     width: 100%; height: 100%;
     display: flex;
@@ -2440,16 +2130,16 @@ h1, h2, h3 {
     padding: 20px;
 }
 
-/* Gros Titre "PARAMÈTRES" */
+
 .settings-content h2 {
-    font-size: 4rem; /* Très grand */
+    font-size: 4rem;
     color: var(--text-primary);
     margin-bottom: 70px;
     letter-spacing: 5px;
     position: relative;
 }
 
-/* Petite ligne rouge décorative sous le titre */
+
 .settings-content h2::after {
     content: '';
     display: block;
@@ -2458,7 +2148,7 @@ h1, h2, h3 {
     margin: 20px auto 0 auto;
 }
 
-/* Bouton Fermer (Croix géante) */
+
 .close-settings {
     position: absolute;
     top: 40px; right: 40px;
@@ -2469,14 +2159,14 @@ h1, h2, h3 {
 }
 .close-settings:hover { color: var(--wyvern-red); transform: rotate(90deg); }
 
-/* --- Les Options (Style épuré lignes fines) --- */
 
-/* Pour les liens autour des options (ex: Mon Compte) */
+
+
 .settings-modal a { text-decoration: none; width: 100%; max-width: 550px; display: flex; justify-content: center; }
 
 .settings-option {
     width: 100%;
-    max-width: 550px; /* Largeur contrôlée pour l'élégance */
+    max-width: 550px;
     padding: 25px 15px;
     margin-bottom: 10px;
     
@@ -2484,110 +2174,102 @@ h1, h2, h3 {
     justify-content: space-between;
     align-items: center;
     
-    background: transparent; /* Pas de fond lourd */
-    /* Juste une ligne fine en bas */
+    background: transparent;
+   
     border-bottom: 1px solid var(--border-thin); 
     
     cursor: pointer;
     transition: all 0.4s ease;
 }
 
-/* Texte de l'option */
+
 .settings-option span {
     font-family: 'Bebas Neue', cursive;
     font-size: 1.8rem;
     letter-spacing: 2px;
-    color: var(--text-secondary); /* Gris par défaut */
+    color: var(--text-secondary);
     transition: color 0.3s, padding 0.3s;
 }
 
-/* Icône de l'option */
+
 .settings-option i {
     font-size: 1.4rem;
     color: var(--text-secondary);
     transition: color 0.3s, transform 0.3s;
 }
 
-/* --- Effet Hover Premium --- */
+
 .settings-option:hover {
-    /* La ligne du bas devient rouge */
+   
     border-bottom-color: var(--wyvern-red);
 }
 
 .settings-option:hover span {
-    color: var(--text-primary); /* Le texte s'illumine (Blanc ou Noir selon thème) */
-    padding-left: 25px; /* Décalage élégant vers la droite */
+    color: var(--text-primary);
+    padding-left: 25px;
 }
 
 .settings-option:hover i {
-    color: var(--wyvern-red); /* L'icône devient rouge */
+    color: var(--wyvern-red);
     transform: scale(1.1) translateX(5px);
 }
 
-/* --- MINI CAROUSEL PRODUIT --- */
+
 
 .carousel-wrapper {
-    position: relative; /* Pour positionner les flèches par dessus */
+    position: relative;
     overflow: hidden;
 }
 
-/* Style des images */
+
 .prod-img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* L'image s'adapte sans être coupée */
+    object-fit: contain;
     opacity: 0;
-    transition: opacity 0.4s ease-in-out; /* Fondu élégant */
+    transition: opacity 0.4s ease-in-out;
     z-index: 1;
 }
 
 .prod-img.active {
     opacity: 1;
     z-index: 2;
-    position: relative; /* Celle active prend la place dans le flux */
+    position: relative;
 }
 
-/* Style des flèches (< et >) */
+
 .mini-arrow {
     position: absolute;
     top: 60%;
     transform: translateY(-50%);
     z-index: 10;
     
-    background: transparent !important; /* AUCUN FOND */
+    background: transparent !important;
     
     
-    font-family: 'Bebas Neue', cursive; /* Police du site */
-    font-size: 3rem; /* Très grand pour être visible */
-    color: rgba(255, 255, 255, 0.5); /* Blanc semi-transparent par défaut */
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     padding: 0 15px;
     line-height: 1;
     transition: all 0.3s ease;
-    user-select: none; /* Empêche de sélectionner le texte < > */
+    user-select: none;
 }
 
 .mini-arrow.prev { left: 0; }
 .mini-arrow.next { right: 0; }
 
-/* Au survol : devient blanc pur et un peu plus grand */
+
 .mini-arrow:hover {
     color: #ffffff;
     transform: translateY(-50%) scale(1.1);
 }
 
-/* Clic : devient rouge */
+
 .mini-arrow:active {
     color: #d32f2f;
-}
-
-/* Mode Clair : Flèches foncées */
-body.light-mode .mini-arrow {
-    color: rgba(0, 0, 0, 0.3);
-}
-body.light-mode .mini-arrow:hover {
-    color: #000;
 }
