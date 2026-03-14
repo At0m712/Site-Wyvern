@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalSettings.innerHTML = `
             <div id="settings-modal" class="settings-modal">
                 <div class="settings-content">
-                    <span class="close-settings" >&times;</span>
+                    <span class="close-settings" ><i class="fas fa-times"></i></span>
                     <h2 id="settings-text">Paramètres</h2>
         
                     <div class="settings-option" id="modal-theme-toggle">
