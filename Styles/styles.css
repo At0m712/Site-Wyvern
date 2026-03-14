@@ -23,6 +23,7 @@
     --bg-secondary: #222;
     --bg-white: #fff;
 
+
     --text-main: #ffffff;
     --text-secondary: #cccccc;
 
@@ -460,15 +461,6 @@ header {
     background-color: #555;
 }
 
-
-
-
-
-
-
-
-
-
 h2 {
     color: var(--bg-card-hover);
     font-size: 24px;
@@ -500,6 +492,10 @@ button {
 
 button:hover {
     background-color: red;
+}
+
+button.big-cart-btn{
+    margin: auto;
 }
 
 
@@ -1458,12 +1454,6 @@ footer {
     border-color: var(--wyvern-red);
 }
 
-.form-footer {
-    margin-top: 20px;
-    color: #888;
-}
-.form-footer a { color: white; text-decoration: underline; }
-
 .social-section {
     padding: 40px 20px;
     text-align: center;
@@ -1639,7 +1629,8 @@ footer {
     cursor: pointer;
 }
 
-.form-footer a:hover { color: var(--wyvern-red); }
+.form-footer a:hover {
+     color: var(--wyvern-red); }
 
 .error-msg {
     background-color: rgba(211, 47, 47, 0.1);
