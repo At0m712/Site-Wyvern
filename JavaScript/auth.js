@@ -216,7 +216,7 @@ function showError(code) {
             errorMsg.textContent = "Format d'email invalide.";
             break;
         case 'auth/weak-password':
-            errorMsg.textContent = "Mot de passe trop court (6 min).";
+            errorMsg.textContent = "Mot de passe trop court (8 min).";
             break;
         case 'auth/wrong-password':
         case 'auth/user-not-found':
