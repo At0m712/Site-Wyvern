@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Tournois - Wyvern</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+
+    <div class="transparent-header">
+        <button id="language-btn" class="language-btn">Fr</button>
+        <button id="settings-btn" class="settings-btn">
+        <i class="fas fa-cog"></i>
+    </button>
+    </div>
+
+    <header class="tournament-hero">
+        <h1 id="tournaments-title">Tournois</h1>
+        <p>L'arène vous attend</p>
+    </header>
+
+    <section id="tournois">
+        <div class="section-header">
+            <h2 id="upcoming-tournaments-title">Choisir votre Jeu</h2>
+        </div>
+
+        <div class="game-selector tab-container">
+            <div class="game-tab tab active" data-tab="all" id="tab-all">
+         Tous
+    </div>
+            
+          
+    <div class="game-tab tab" data-tab="fortnite" id="tab-fortnite">
+        <img src="images/Fortnite-logo.svg" alt="Fortnite" class="game-logo"> Fortnite
+    </div>
+    <div class="game-tab tab" data-tab="overwatch" id="tab-overwatch">
+        <img src="images/Overwatch-logo.svg" alt="Overwatch" class="game-logo"> Overwatch
+    </div>
+    <div class="game-tab tab" data-tab="valorant" id="tab-valorant">
+        <img src="images/Valorant-logo.svg" alt="Valorant" class="game-logo"> Valorant
+    </div>
+</div>
+
+<div class="tournament-details-card tab-content active card-fortnite" id="fortnite">
+    <div class="card-header-flex">
+        <div>
+            <h3 class="card-title">Tournois Fortnite</h3>
+            <p class="card-date">📅 12 Novembre 2024</p>
+        </div>
+        <img src="images/Fortnite-logo.svg" alt="Logo Fortnite" class="card-game-logo">
+    </div>
+    <hr class="card-divider">
+    <p class="card-status">Inscription : OUVERTE</p>
+    <br>
+   <a href="https://discord.com/channels/1015575577555640361/1102309789054292028" target="_blank" class="card-btn btn-fortnite">S'inscrire sur Discord</a>
+</div>
+
+<div class="tournament-details-card tab-content active card-overwatch" id="overwatch">
+    <div class="card-header-flex">
+        <div>
+            <h3 class="card-title">Tournois Overwatch</h3>
+            <p class="card-date">📅 20 Novembre 2024</p>
+        </div>
+        <img src="images/Overwatch-logo.svg" alt="Logo Overwatch" class="card-game-logo">
+    </div>
+    <hr class="card-divider">
+    <p class="card-status">Inscription : OUVERTE</p>
+    <br>
+    <a href="https://discord.com/channels/1015575577555640361/1102309789054292028" target="_blank" class="card-btn btn-overwatch">S'inscrire sur Discord</a>
+</div>
+
+<div class="tournament-details-card tab-content active card-valorant" id="valorant">
+    <div class="card-header-flex">
+        <div>
+            <h3 class="card-title">Tournois Valorant</h3>
+            <p class="card-date">📅 28 Novembre 2024</p>
+        </div>
+        <img src="images/Valorant-logo.svg" alt="Logo Valorant" class="card-game-logo">
+    </div>
+    <hr class="card-divider">
+    <p class="card-status">Inscription : OUVERTE</p>
+    <br>
+    <a href="https://discord.com/channels/1015575577555640361/1102309789054292028" target="_blank" class="card-btn btn-valorant">S'inscrire sur Discord</a>
+</div>
+
+    </section>
+
+    <section id="resultats-tournois" class="results-section">
+        <h2 id="tournament-results-title" class="results-title">Hall of Fame</h2>
+        
+        <div class="results-grid">
+            <div class="result-box">
+                <span class="winner-badge"><i class="fas fa-crown"></i> WINNER</span>
+                <h3 id="result-fortnite-title">Fortnite Cup Oct.</h3>
+                <p id="result-fortnite-winner" class="result-team">Team Wyvern Alpha</p>
+                <p id="result-fortnite-score" class="result-score">Score : 3-1</p>
+            </div>
+            
+            <div class="result-box">
+                <span class="winner-badge"><i class="fas fa-crown"></i> WINNER</span>
+                <h3 id="result-overwatch-title">Overwatch Sept.</h3>
+                <p id="result-overwatch-winner" class="result-team">Team Wyvern Omega</p>
+                <p id="result-overwatch-score" class="result-score">Score : 4-2</p>
+            </div>
+            
+            <div class="result-box">
+                <span class="winner-badge"><i class="fas fa-crown"></i> WINNER</span>
+                <h3 id="result-valorant-title">Valorant Masters</h3>
+                <p id="result-valorant-winner" class="result-team">Team Wyvern Delta</p>
+                <p id="result-valorant-score" class="result-score">Score : 13-9</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+   <nav class="floating-navbar">
+    <a href="index.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        <span>Accueil</span>
+    </a>
+    
+   
+    <a href="tournois.html" class="nav-item">
+        <i class="fas fa-trophy"></i>
+        <span>Tournois</span>
+    </a>
+    
+    <a href="actualites.html" class="nav-item">
+        <i class="fas fa-newspaper"></i>
+        <span>News</span>
+    </a>
+     <a href="shop.html" class="nav-item">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Shop</span>
+        </a>
+    </nav>
+
+<div id="settings-modal" class="settings-modal">
+    <div class="settings-content">
+        <span class="close-settings" >&times;</span>
+        <h2>Paramètres</h2>
+        
+        
+        <div class="settings-option" id="modal-theme-toggle">
+            <span>Mode Sombre/Clair</span>
+            <i class="fas fa-adjust"></i>
+        </div>
+
+        <div class="settings-option" id="modal-lang-toggle">
+            <span>Langue : FR/EN</span>
+            <i class="fas fa-globe"></i>
+        </div>
+        
+        <a href="compte.html" style="text-decoration:none; color:white;">
+            <div class="settings-option">
+                <span>Mon Compte</span>
+                <i class="fas fa-user"></i>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+</body>
+</html>
