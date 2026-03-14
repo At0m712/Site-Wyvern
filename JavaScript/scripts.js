@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalSettings.innerHTML = `
             <div id="settings-modal" class="settings-modal">
                 <div class="settings-content">
-                    <span class="close-settings" ><i class="fas fa-times"></i></span>
+                    <span class="close-btn" ><i class="fas fa-times"></i></span>
                     <h2 id="settings-text">Paramètres</h2>
         
                     <div class="settings-option" id="modal-theme-toggle">
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        document.querySelectorAll('#cart-btn, #close-cart-btn').forEach(btn => btn.addEventListener('click', window.toggleCart));
+        document.querySelectorAll('#cart-btn, #close-btn').forEach(btn => btn.addEventListener('click', window.toggleCart));
     }
 
     
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function initModals() {
         const settingsBtn = document.getElementById('settings-btn');
         const settingsModal = document.getElementById('settings-modal');
-        const closeSettings = document.querySelector('.close-settings');
+        const closeSettings = document.querySelector('.close-btn');
 
         if (settingsBtn && settingsModal) {
             settingsBtn.addEventListener('click', () => settingsModal.style.display = 'flex');

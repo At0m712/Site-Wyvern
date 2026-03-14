@@ -448,19 +448,6 @@ header {
 }
 
 
-.add-to-cart {
-    background-color: var(--bg-card-hover);
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.add-to-cart:hover {
-    background-color: #555;
-}
-
 h2 {
     color: var(--bg-card-hover);
     font-size: 24px;
@@ -494,10 +481,9 @@ button:hover {
     background-color: red;
 }
 
-button.big-cart-btn{
+button.btn-full{
     margin: auto;
 }
-
 
 
 .product-info {
@@ -519,22 +505,6 @@ select {
     padding: 5px;
     font-size: 16px;
 }
-
-.add-to-cart {
-    display: inline-block;
-    background-color: var(--bg-card-hover);
-    color: white;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.add-to-cart:hover {
-    background-color: #555;
-}
-
 
 
 
@@ -1277,31 +1247,25 @@ footer {
 }
 
 
-.close-cart-btn {
+.close-btn {
    
     position: absolute;
     top: 20px;
     right: 30px;
-    
-   
     background: transparent; 
     border: none;
-    
-   
     color: white; 
     font-size: 2.5em;
     cursor: pointer;
     line-height: 1;
-    
-   
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    transition: all 0.3s ease;
 }
 
 
-.close-cart-btn:hover {
+.close-btn:hover {
     background: transparent;
     color: var(--wyvern-red);
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
 
@@ -1351,37 +1315,19 @@ footer {
 }
 
 
-#total-price {
-    width: 100%;
-   
-    background: transparent;
-    
-   
-    border: none;
-    box-shadow: none;
-    
-   
-   
+.total-price {
+
     background-image: linear-gradient(to right, transparent, var(--wyvern-red), transparent);
-    
-   
     background-size: 100% 2px;
     background-repeat: no-repeat;
     background-position: top center;
-    
-   
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
-    
-   
-    font-size: 2.5em;
+    font-size: 35px;
     font-weight: bold;
     color: white;
-    
-   
-    text-shadow: 0 0 20px rgba(211, 47, 47, 0.5);
 }
 
 .cart-btn,
@@ -1978,18 +1924,6 @@ h1, h2, h3 {
     background: var(--wyvern-red);
     margin: 20px auto 0 auto;
 }
-
-.close-settings {
-    position: absolute;
-    top: 40px; right: 40px;
-    font-size: 40px;
-    color: var(--text-secondary);
-    cursor: pointer;
-}
-.close-settings:hover i{
-    color: var(--wyvern-red);
-    transition: all 0.3s ease;
-    transform: rotate(90deg); }
 
 .settings-modal a { text-decoration: none; width: 100%; max-width: 550px; display: flex; justify-content: center; }
 
