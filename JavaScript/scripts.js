@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     initNavbar(); 
-    initSettings();           
+    initSettings(); 
+    initCartModal();          
     initNavigation();        
     initTheme();             
     initLanguage();          
@@ -64,7 +65,24 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    
+    function initCartModal() {
+        const cartInterface = document.getElementById('cart-modal');
+        if (!cartInterface) return; 
+
+        cartInterface.innerHTML = `
+            <div id="cart" class="cart">
+                <div class="cart-header">
+                    <h2 id="cart-title">Votre Panier</h2>
+                    <button id="close-btn" class="close-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="cart-items">
+                    </div>
+                <p id="total-price" class="total-price"></p>
+            </div>
+        `;
+    }
     
     
     function initNavigation() {
