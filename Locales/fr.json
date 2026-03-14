@@ -1,22 +1,27 @@
 {
     "site-title": "Wyvern E-sport",
     "page-title": "Actualité - Wyvern",
-    "shop-title": "Shop Wyvern",
-    "tournaments-title": "Tournois",
-    "news-title": "Actualités Wyvern",
     "wyvern-title": "Wyvern",
-    
+    "language-btn-text": "Fr",
+
     "nav-home": "Accueil",
     "nav-tournaments": "Tournois",
-    "nav-shop": "Shop",
+    "nav-shop": "Boutique",
     "nav-news": "Actualités",
-    
+    "menu-text": "Menu",
+    "menu-btn-text": "Menu",
+
+    "settings-text": "Paramètres",
+    "settings-theme": "Mode Sombre/Clair",
+    "settings-account": "Mon Compte",
+
     "welcome-title": "Bienvenue chez Wyvern E-sport",
     "welcome-text": "Rejoignez la nouvelle génération de compétiteurs e-sport !",
     "learn-more-btn": "En savoir plus",
+
     "about-title": "À Propos de Nous",
     "about-text": "Nous sommes une structure e-sport française dédiée à la compétition de haut niveau dans plusieurs jeux. Notre objectif est de former les meilleures équipes et de créer une communauté dynamique autour des jeux vidéo compétitifs.",
-    
+
     "teams-title": "Nos Équipes",
     "fortnite-title": "Équipe Fortnite",
     "fortnite-text": "Jeu principal : Fortnite",
@@ -29,20 +34,41 @@
     "Valorant-title": "Équipe Valorant",
     "Valorant-text": "Jeu principal : Valorant",
 
+    "shop-title": "Shop Wyvern",
     "products-section-title": "Nos Produits",
     "product1-title": "T-shirt Wyvern",
+    "product-title1": "T-shirt Wyvern",
     "product1-price": "Prix : 79.99€",
+    "product-price1": "Prix : 79.99€",
     "product2-title": "Veste Wyvern",
+    "product-title2": "Veste Wyvern",
     "product2-price": "Prix : 104.99€",
+    "product-price2": "Prix : 104.99€",
     "product3-title": "Hoodie Wyvern",
     "product3-price": "Prix : 95€",
     "product-description": "Ce T-shirt en coton affiche fièrement les couleurs de Wyvern. Taille unique.",
-    
+    "size-label": "Choisir une taille :",
+    "size-s": "S",
+    "size-m": "M",
+    "size-l": "L",
+    "size-xl": "XL",
+
     "cart-title": "Votre Panier",
     "cart-empty-text": "Le panier est vide.",
+    "cart-empty-message": "Le panier est vide.",
     "cart-total-price": "Total : ",
     "add-to-cart-text": "Ajouter au panier",
     
+    "remove-item-title": "Retirer un article",
+    "remove-modal-title": "Retirer un article",
+    "remove-item-modal-title": "Retirer un article",
+    "remove-item-name": "Nom de l'article",
+    "remove-quantity-label": "Sélectionner la quantité à retirer :",
+    "choose-quantity-label": "Sélectionner la quantité à retirer :",
+    "confirm-remove-btn": "Confirmer",
+    "confirm-remove-text": "Confirmer",
+
+    "news-title": "Actualités Wyvern",
     "latest-news": "Dernières Nouvelles",
     "news-1-title": "Cclp...",
     "news-1-date": "Date : 6 Octobre 2025",
@@ -53,7 +79,8 @@
     "news-3-title": "Nouveau Contrat !",
     "news-3-date": "Date : 20 Mars 2025",
     "news-3-content": "JUZOU14 SIGNE UN CONTRAT DE 2ANS !",
-    
+
+    "tournaments-title": "Tournois",
     "upcoming-tournaments-title": "Tournois à venir",
     "tab-fortnite": "Fortnite",
     "tab-overwatch": "Overwatch",
@@ -67,7 +94,7 @@
     "tournament-valorant-title": "Tournoi Valorant",
     "tournament-valorant-date": "Date : 28 novembre 2024",
     "tournament-valorant-registration": "Inscription : Ouverte",
-    
+
     "tournament-results-title": "Résultats des tournois",
     "result-fortnite-title": "Tournoi Fortnite - 5 Octobre 2024",
     "result-fortnite-winner": "Vainqueur : Équipe Wyvern Alpha",
@@ -80,5 +107,6 @@
     "result-valorant-score": "Score : 13-9 en finale contre Équipe Hydra",
 
     "contact-text": "Contactez-nous : news@wyvern.com",
-    "footer-contact": "Contactez-nous : shop@wyvern.com"
+    "footer-contact": "Contactez-nous : shop@wyvern.com",
+    "alert-message": "Message d'alerte"
 }
