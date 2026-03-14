@@ -11,9 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initTabs();              
     initModals();            
     initCarousels();         
-    initNews();              
-
-    
     
     
     function initNavbar() {
@@ -266,8 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     
-    
-    
     function initModals() {
         const settingsBtn = document.getElementById('settings-btn');
         const settingsModal = document.getElementById('settings-modal');
@@ -331,57 +326,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-
-    
-    
-    
-    function initNews() {
-        const newsData = [
-            { id: 1, date: "12 Nov 2024", title: "Lancement de la Saison 5", excerpt: "Découvrez les nouvelles maps...", fullContent: "<p>Soldats, la Saison 5 est enfin là !</p>" },
-            { id: 2, date: "10 Nov 2024", title: "Résultats Tournoi Octobre", excerpt: "L'équipe Alpha a dominé...", fullContent: "<p>Victoire écrasante de la Wyvern Alpha.</p>" },
-            { id: 3, date: "05 Nov 2024", title: "Promos Black Friday", excerpt: "Préparez-vous pour des réductions...", fullContent: "<p>Le Black Friday arrive chez Wyvern !</p>" }
-        ];
-
-        newsData.forEach((news, index) => {
-            const i = index + 1;
-            const dateEl = document.getElementById(`news-${i}-date`);
-            const titleEl = document.getElementById(`news-${i}-title`);
-            const contentEl = document.getElementById(`news-${i}-content`);
-            if (dateEl) dateEl.innerText = news.date;
-            if (titleEl) titleEl.innerText = news.title;
-            if (contentEl) contentEl.innerText = news.excerpt;
-        });
-
-        const newsModal = document.getElementById('news-modal');
-        const modalTitle = document.getElementById('modal-news-title');
-        const modalBody = document.getElementById('modal-news-body');
-        const closeBtn = document.querySelector('.close-news-btn');
-        const readMoreLinks = document.querySelectorAll('.read-more');
-
-        if (newsModal && readMoreLinks.length > 0) {
-            readMoreLinks.forEach((link, index) => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    modalTitle.innerText = newsData[index].title;
-                    modalBody.innerHTML = newsData[index].fullContent;
-                    newsModal.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-            
-            if(closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    newsModal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                });
-            }
-            
-            window.addEventListener('click', (e) => {
-                if (e.target === newsModal) {
-                    newsModal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        }
-    }
-});
+})
