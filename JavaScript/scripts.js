@@ -22,16 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = `
             <nav class="floating-navbar">
                 <a href="index.html" class="nav-item">
-                    <i class="fas fa-home"></i><span>Accueil</span>
+                    <i class="fas fa-home"></i><span id="nav-home">Accueil</span>
                 </a>
                 <a href="tournois.html" class="nav-item">
-                    <i class="fas fa-trophy"></i><span>Tournois</span>
+                    <i class="fas fa-trophy"></i><span id="nav-tournaments">Tournois</span>
                 </a>
                 <a href="actualites.html" class="nav-item">
-                    <i class="fas fa-newspaper"></i><span>News</span>
+                    <i class="fas fa-newspaper"></i><span id="nav-news">Actualités</span>
                 </a>
                 <a href="shop.html" class="nav-item">
-                    <i class="fas fa-shopping-bag"></i><span>Shop</span>
+                    <i class="fas fa-shopping-bag"></i><span id="nav-shop">Boutique</span>
                 </a>
             </nav>
         `;
@@ -46,16 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
             <div id="settings-modal" class="settings-modal">
                 <div class="settings-content">
                     <span class="close-settings" >&times;</span>
-                    <h2>Paramètres</h2>
+                    <h2 id="settings-text">Paramètres</h2>
         
                     <div class="settings-option" id="modal-theme-toggle">
-                        <span>Mode Sombre/Clair</span>
+                        <span id="settings-theme">Mode Sombre/Clair</span>
                         <i class="fas fa-adjust"></i>
                     </div>
                     
                     <a href="compte.html" style="text-decoration:none; color:white;">
                         <div class="settings-option">
-                            <span>Mon Compte</span>
+                            <span id="settings-account">Mon Compte</span>
                             <i class="fas fa-user"></i>
                         </div>
                     </a>
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentLang = localStorage.getItem("lang") || "fr";
 
         function loadLanguage(lang) {
-            fetch(`${lang}.json`)
+            fetch(`Locales/${lang}.json`)
                 .then(response => {
                     if (!response.ok) throw new Error("Fichier langue introuvable");
                     return response.json();
