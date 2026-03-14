@@ -1582,8 +1582,6 @@ body.light-mode footer { background: #fff !important; color: #000 !important; bo
     transform: scale(1.1);
 }
 
-C'est bien noté. On va forcer le style pour que les logos des jeux (les icônes dans les onglets) deviennent noirs quand ils ne sont pas sélectionnés, et pour que les boîtes de résultats deviennent bien blanches.
-Voici le code correctif spécifique pour la page Tournois. Copiez-le et collez-le tout à la fin de votre fichier styles.css.
 /* ============================================================
    🏆 CORRECTIF TOURNOIS & RÉSULTATS (LIGHT MODE)
    ============================================================ */
@@ -2593,4 +2591,3 @@ body.light-mode .mini-arrow {
 body.light-mode .mini-arrow:hover {
     color: #000;
 }
-
