@@ -131,6 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     for (let key in data) {
                         let element = document.getElementById(key);
                         if (element) element.innerText = data[key];
+                        
+                        let elements = document.querySelectorAll('.' + key);
+                        elements.forEach(el => el.innerText = data[key]);
                     }
                     if (languageBtn) languageBtn.innerText = lang.toUpperCase();
                     localStorage.setItem("lang", lang);
