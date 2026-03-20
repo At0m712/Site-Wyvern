@@ -2,34 +2,20 @@
 // 🔐 AUTH.JS - Avec Vérification Email
 // ============================================================
 
-// 1. On importe le cœur de Firebase (C'est ce qui te manquait !)
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+// 1. On importe l'application Firebase depuis notre nouveau fichier central
+import { app } from "./firebase-config.js";
 
-// 2. On importe tous les outils d'authentification (Google, Discord, Email...)
+// 2. On importe tous les outils d'authentification
 import { 
     getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, 
     onAuthStateChanged, signOut, sendEmailVerification,
     GoogleAuthProvider, OAuthProvider, signInWithPopup 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-// ⬇️⬇️⬇️ TA CONFIG FIREBASE (Ne change pas ça) ⬇️⬇️⬇️
-const firebaseConfig = {
-  apiKey: "AIzaSyCix0csY0K45-X0HGDLT8vbf1pps8rlopQ",
-  authDomain: "wyvern-a511e.firebaseapp.com",
-  projectId: "wyvern-a511e",
-  storageBucket: "wyvern-a511e.firebasestorage.app",
-  messagingSenderId: "1095176388456",
-  appId: "1:1095176388456:web:30ce56ad4491c4fdd0a0dd",
-  measurementId: "G-5L8BX7WHNR"
-};
-// ⬆️⬆️⬆️ ------------------------------------- ⬆️⬆️⬆️
-
-// Initialisation
-const app = initializeApp(firebaseConfig);
+// Initialisation de l'authentification avec notre app centralisée
 const auth = getAuth(app);
 
-// Sélection des éléments HTML
-const authForms = document.getElementById('auth-forms');         // Login/Signup
+const authForms = document.getElementById('auth-forms');  
 const userProfile = document.getElementById('user-profile');     // Profil validé
 const verifyEmailCard = document.getElementById('verify-email-card'); // Écran "Vérifie tes mails"
 
@@ -232,7 +218,7 @@ function showError(code) {
         default:
             errorMsg.textContent = "Erreur : " + code;
     }
-
+}
  // ============================================================
 // 🌍 CONNEXION SOCIALE (Google & Discord)
 // ============================================================
@@ -279,4 +265,3 @@ if (discordBtn) {
     });
 }
 
-}

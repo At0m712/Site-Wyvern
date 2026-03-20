@@ -1,17 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { app } from "./firebase-config.js";
+
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// Ta configuration Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyCix0csY0K45-X0HGDLT8vbf1pps8rlopQ",
-  authDomain: "wyvern-a511e.firebaseapp.com",
-  projectId: "wyvern-a511e",
-  storageBucket: "wyvern-a511e.firebasestorage.app",
-  messagingSenderId: "1095176388456",
-  appId: "1:1095176388456:web:30ce56ad4491c4fdd0a0dd"
-};
-
-const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 async function chargerBoutique() {
