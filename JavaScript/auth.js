@@ -4,7 +4,7 @@
 
 // On ajoute 'sendEmailVerification' dans les imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendEmailVerification } 
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendEmailVerification, GoogleAuthProvider, OAuthProvider, signInWithPopup } 
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // ⬇️⬇️⬇️ TA CONFIG FIREBASE (Ne change pas ça) ⬇️⬇️⬇️
@@ -227,5 +227,52 @@ function showError(code) {
         default:
             errorMsg.textContent = "Erreur : " + code;
     }
+
+    // ============================================================
+// 🌍 CONNEXION SOCIALE (Google & Discord)
+// ============================================================
+
+const googleBtn = document.getElementById('google-login-btn');
+const discordBtn = document.getElementById('discord-login-btn');
+
+// --- CONNEXION GOOGLE ---
+if (googleBtn) {
+    googleBtn.addEventListener('click', () => {
+        const googleProvider = new GoogleAuthProvider();
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log("Connecté avec Google :", user.displayName);
+                // Le onAuthStateChanged que tu as déjà va détecter la connexion
+                // et afficher la div "user-profile" automatiquement !
+            })
+            .catch((error) => {
+                console.error("Erreur Google :", error);
+                showError(error.code);
+            });
+    });
+}
+
+// --- CONNEXION DISCORD ---
+if (discordBtn) {
+    discordBtn.addEventListener('click', () => {
+        // Remplace 'oidc.discord' par l'ID exact que tu as mis dans Firebase
+        const discordProvider = new OAuthProvider('oidc.discord'); 
+        
+        // Optionnel : Demander accès à l'avatar et au pseudo
+        discordProvider.addScope('identify'); 
+        discordProvider.addScope('email');
+
+        signInWithPopup(auth, discordProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log("Connecté avec Discord :", user.displayName);
+            })
+            .catch((error) => {
+                console.error("Erreur Discord :", error);
+                showError(error.code);
+            });
+    });
+}
 }
    
