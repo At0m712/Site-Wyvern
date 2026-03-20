@@ -2,10 +2,15 @@
 // 🔐 AUTH.JS - Avec Vérification Email
 // ============================================================
 
-// On ajoute 'sendEmailVerification' dans les imports
+// 1. On importe le cœur de Firebase (C'est ce qui te manquait !)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendEmailVerification, GoogleAuthProvider, OAuthProvider, signInWithPopup } 
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+// 2. On importe tous les outils d'authentification (Google, Discord, Email...)
+import { 
+    getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, 
+    onAuthStateChanged, signOut, sendEmailVerification,
+    GoogleAuthProvider, OAuthProvider, signInWithPopup 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // ⬇️⬇️⬇️ TA CONFIG FIREBASE (Ne change pas ça) ⬇️⬇️⬇️
 const firebaseConfig = {
@@ -228,26 +233,29 @@ function showError(code) {
             errorMsg.textContent = "Erreur : " + code;
     }
 
-    // ============================================================
+ // ============================================================
 // 🌍 CONNEXION SOCIALE (Google & Discord)
 // ============================================================
 
 const googleBtn = document.getElementById('google-login-btn');
 const discordBtn = document.getElementById('discord-login-btn');
 
+console.log("Bouton Google trouvé dans le HTML ?", googleBtn);
+console.log("Bouton Discord trouvé dans le HTML ?", discordBtn);
+
 // --- CONNEXION GOOGLE ---
 if (googleBtn) {
-    googleBtn.addEventListener('click', () => {
+    googleBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Empêche la page de se recharger
+        console.log("🔴 CLIC SUR LE BOUTON GOOGLE DÉTECTÉ !");
+        
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                const user = result.user;
-                console.log("Connecté avec Google :", user.displayName);
-                // Le onAuthStateChanged que tu as déjà va détecter la connexion
-                // et afficher la div "user-profile" automatiquement !
+                console.log("✅ Connexion Google réussie :", result.user.email);
             })
             .catch((error) => {
-                console.error("Erreur Google :", error);
+                console.error("❌ Erreur Google :", error.message);
                 showError(error.code);
             });
     });
@@ -255,24 +263,20 @@ if (googleBtn) {
 
 // --- CONNEXION DISCORD ---
 if (discordBtn) {
-    discordBtn.addEventListener('click', () => {
-        // Remplace 'oidc.discord' par l'ID exact que tu as mis dans Firebase
-        const discordProvider = new OAuthProvider('oidc.discord'); 
+    discordBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log("🟣 CLIC SUR LE BOUTON DISCORD DÉTECTÉ !");
         
-        // Optionnel : Demander accès à l'avatar et au pseudo
-        discordProvider.addScope('identify'); 
-        discordProvider.addScope('email');
-
+        const discordProvider = new OAuthProvider('oidc.discord');
         signInWithPopup(auth, discordProvider)
             .then((result) => {
-                const user = result.user;
-                console.log("Connecté avec Discord :", user.displayName);
+                console.log("✅ Connexion Discord réussie :", result.user.email);
             })
             .catch((error) => {
-                console.error("Erreur Discord :", error);
+                console.error("❌ Erreur Discord :", error.message);
                 showError(error.code);
             });
     });
 }
+
 }
-   
