@@ -47,5 +47,7 @@ async function chargerBoutique() {
     }
 }
 
+
+
 // On lance le chargement au démarrage de la page
 document.addEventListener('DOMContentLoaded', chargerBoutique);

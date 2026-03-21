@@ -63,23 +63,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function initCartModal() {
-        const cartInterface = document.getElementById('cart-modal');
-        if (!cartInterface) return; 
+    const cartInterface = document.getElementById('cart-modal');
+    if (!cartInterface) return; 
 
-        cartInterface.innerHTML = `
-            <div id="cart" class="cart">
-                <div class="cart-header">
-                    <h2 id="cart-title">Votre Panier</h2>
-                    <button id="close-btn" class="close-btn">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="cart-items">
-                    </div>
-                <p id="total-price" class="total-price"></p>
+    cartInterface.innerHTML = `
+        <div id="cart" class="cart">
+            <div class="cart-header">
+                <h2 id="cart-title">Votre Panier</h2>
+                <button id="close-btn" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-        `;
-    }
+            <div class="cart-items"></div>
+            <p id="total-price" class="total-price"></p>
+            
+            <button id="checkout-btn" class="big-cart-btn" style="margin: 20px auto; display: block; width: 80%;">
+                Acheter (Tester le stock)
+            </button>
+        </div>
+    `;
+}
     
     
     function initNavigation() {
@@ -211,9 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
             addToCartBtn.addEventListener('click', function() {
                 const productTitle = this.getAttribute('data-product');
                 const productPrice = parseFloat(this.getAttribute('data-price'));
+                const productId = this.getAttribute('data-id')
                 const sizeSelect = document.getElementById('size');
                 const productSize = sizeSelect ? sizeSelect.value : 'Taille Unique';
-                const item = { name: productTitle, price: productPrice, size: productSize, quantity: 1 };
+                const item = { id: productId, name: productTitle, price: productPrice, size: productSize, quantity: 1 };
                 
                 const existingItem = cart.find(i => i.name === item.name && i.size === item.size);
                 if (existingItem) existingItem.quantity++; else cart.push(item);
