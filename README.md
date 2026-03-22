@@ -8,3 +8,4 @@
 
 - Add better lightmode
 
+- Using Firestore for News
