@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p id="total-price" class="total-price"></p>
             
             <button id="checkout-btn" class="big-cart-btn" style="margin: 20px auto; display: block; width: 80%;">
-                Acheter (Tester le stock)
+                Acheter
             </button>
         </div>
     `;
