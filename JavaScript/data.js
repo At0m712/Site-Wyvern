@@ -71,12 +71,28 @@ export const DEFAULT_PRODUCTS = [
         description: "Veste officielle esport avec logo Wyvern brodé sur le torse. Matériaux premium thermorégulateurs avec capuche ajustable et fermeture zippée renforcée."
     },
     {
-        id: "Enjoliveur Wyvern",
+        id: "Enjoliver Wyvern",
         nom: "Enjoliveur Performance Wyvern",
-        prix: 49.99,
+        prix: 4999.99,
         image_url: "Assets/Produit/Enjoliver_Wyvern.png",
-        lien_page: "shop.html",
+        lien_page: "produit3.html",
         description: "Accessoire collector Wyvern pour véhicules et setups personnalisés. Finition carbone et découpe laser."
+    },
+    {
+        id: "Lexus LFA",
+        nom: "Lexus LFA - Édition Circuit",
+        prix: 3750.00,
+        image_url: "Assets/Produit/LexusLFA.png",
+        lien_page: "shop.html",
+        description: "Modèle réduit collector d'ingénierie sportive japonaise aux finitions compétition d'orfèvre."
+    },
+    {
+        id: "Porsche 911",
+        nom: "Porsche 911 GT3 RS",
+        prix: 2950.00,
+        image_url: "Assets/Produit/Porsche911GT3Rs.png",
+        lien_page: "shop.html",
+        description: "L'icône absolue des circuits internationaux en édition limitée pour collectionneurs avertis."
     }
 ];
 
