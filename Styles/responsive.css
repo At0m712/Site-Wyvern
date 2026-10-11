@@ -156,6 +156,11 @@
         width: 160px;
         height: 160px;
     }
+
+    .player-placeholder-square {
+        width: 160px;
+        height: 160px;
+    }
 }
 
 /* --- PETITS SMARTPHONES (<= 480px) --- */

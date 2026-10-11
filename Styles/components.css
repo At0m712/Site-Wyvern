@@ -9,30 +9,31 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 70px;
+    height: 72px;
     background-color: var(--bg-header);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 0 28px;
     z-index: var(--z-header);
-    border-bottom: 1px solid var(--border-thin);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
     transition: background-color var(--transition-base), border-color var(--transition-base);
 }
 
 .header-left, .header-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
 }
 
 /* Logo central ou brand */
 .header-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     text-decoration: none;
     transition: transform var(--transition-fast);
 }
@@ -42,22 +43,25 @@
 }
 
 .header-brand img {
-    height: 38px;
+    height: 42px;
     width: auto;
     object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
 }
 
 .header-brand-text {
     font-family: var(--font-title);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     letter-spacing: 2px;
     color: var(--text-main);
     display: flex;
     align-items: center;
+    line-height: 1;
 }
 
 .header-brand-text span {
     color: var(--wyvern-red);
+    margin-left: 5px;
 }
 
 /* Boutons d'action du header */
@@ -67,34 +71,39 @@
     font-family: var(--font-title);
     font-size: 1.15rem;
     letter-spacing: 1px;
-    padding: 6px 14px;
+    padding: 7px 16px;
     border-radius: var(--radius-sm);
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 8px var(--wyvern-red-glow);
     transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .language-btn:hover {
     background-color: var(--wyvern-red-hover);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 .icon-header-btn {
-    background: transparent;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     color: var(--text-main);
-    font-size: 1.35rem;
-    padding: 8px;
+    font-size: 1.25rem;
+    width: 42px;
+    height: 42px;
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    transition: color var(--transition-fast), transform var(--transition-fast);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
 }
 
 .icon-header-btn:hover {
     color: var(--wyvern-red);
-    transform: scale(1.08);
+    border-color: var(--wyvern-red);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .settings-btn i {
@@ -111,39 +120,130 @@
 
 .cart-count {
     position: absolute;
-    top: -4px;
-    right: -4px;
+    top: -5px;
+    right: -5px;
     background-color: var(--wyvern-red);
     color: #ffffff;
     border-radius: var(--radius-full);
-    min-width: 18px;
-    height: 18px;
-    padding: 0 4px;
-    font-size: 0.7rem;
-    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    font-size: 0.75rem;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--bg-header);
 }
 
-/* --- 2. BARRE DE NAVIGATION FLOTTANTE --- */
+/* --- 2. PLACEHOLDER CARRÉ STYLE ESPORT (IMAGE MANQUANTE) --- */
+.placeholder-square {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--placeholder-border);
+    border-radius: var(--radius-md);
+    background: var(--placeholder-bg);
+    color: var(--placeholder-text);
+    gap: 8px;
+    padding: 12px;
+    text-align: center;
+    transition: all var(--transition-fast);
+    user-select: none;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.placeholder-square i {
+    font-size: 2rem;
+    color: var(--placeholder-text);
+    transition: all var(--transition-fast);
+}
+
+.placeholder-square span {
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.placeholder-square:hover {
+    border-color: var(--wyvern-red);
+    color: var(--wyvern-red);
+    background: var(--wyvern-red-light);
+    transform: scale(1.04);
+}
+
+.placeholder-square:hover i {
+    color: var(--wyvern-red);
+    transform: scale(1.12);
+}
+
+/* Placeholder Spécifique pour Joueur de Roster */
+.player-placeholder-square {
+    width: 190px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--placeholder-border);
+    border-radius: var(--radius-lg);
+    background: var(--placeholder-bg);
+    color: var(--placeholder-text);
+    gap: 10px;
+    padding: 16px;
+    margin-bottom: 20px;
+    transition: all var(--transition-fast);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.08);
+}
+
+.player-placeholder-square i {
+    font-size: 3rem;
+    color: var(--placeholder-text);
+    transition: all var(--transition-fast);
+}
+
+.player-placeholder-square span {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.carousel-item:hover .player-placeholder-square {
+    border-color: var(--wyvern-red);
+    color: var(--wyvern-red);
+    background: var(--wyvern-red-light);
+}
+
+.carousel-item:hover .player-placeholder-square i {
+    color: var(--wyvern-red);
+    transform: translateY(-4px);
+}
+
+/* --- 3. BARRE DE NAVIGATION FLOTTANTE --- */
 .floating-navbar {
     position: fixed;
     bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 32px);
-    max-width: 500px;
+    max-width: 520px;
     background-color: var(--bg-navbar);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px 16px;
+    padding: 10px 18px;
     border-radius: var(--radius-full);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     border: 1px solid var(--border-color);
     z-index: var(--z-floatingbar);
     transition: all var(--transition-base);
@@ -156,15 +256,15 @@
     flex-direction: column;
     align-items: center;
     font-size: 0.75rem;
-    font-weight: 500;
-    padding: 6px 12px;
+    font-weight: 600;
+    padding: 8px 14px;
     border-radius: var(--radius-md);
     transition: all var(--transition-fast);
     position: relative;
 }
 
 .nav-item i {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     margin-bottom: 4px;
     transition: transform var(--transition-fast);
 }
@@ -184,28 +284,28 @@
 .nav-item.active::after {
     content: '';
     position: absolute;
-    bottom: 2px;
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
-    width: 16px;
+    width: 20px;
     height: 3px;
     background-color: var(--wyvern-red);
     border-radius: var(--radius-full);
 }
 
-/* --- 3. BOUTONS STYLISÉS --- */
+/* --- 4. BOUTONS STYLISÉS --- */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 12px 28px;
+    padding: 13px 30px;
     font-family: var(--font-title);
     font-size: 1.25rem;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all var(--transition-fast);
     box-shadow: var(--shadow-sm);
@@ -215,18 +315,19 @@
 .btn-primary {
     background-color: var(--wyvern-red);
     color: #ffffff;
+    box-shadow: 0 4px 14px var(--wyvern-red-glow);
 }
 
 .btn-primary:hover {
     background-color: var(--wyvern-red-hover);
-    box-shadow: 0 0 20px var(--wyvern-red-glow);
+    box-shadow: 0 6px 20px var(--wyvern-red-glow);
     transform: translateY(-2px);
 }
 
 .btn-secondary {
-    background-color: transparent;
+    background-color: var(--bg-card);
     color: var(--text-main);
-    border-color: var(--border-strong);
+    border-color: var(--border-color);
 }
 
 .btn-secondary:hover {
@@ -239,9 +340,9 @@
     background-color: var(--wyvern-red);
     color: #ffffff;
     border: none;
-    padding: 14px 28px;
+    padding: 15px 30px;
     font-family: var(--font-title);
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     border-radius: var(--radius-sm);
@@ -251,19 +352,19 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    box-shadow: var(--shadow-sm);
+    gap: 12px;
+    box-shadow: 0 4px 16px var(--wyvern-red-glow);
 }
 
 .big-cart-btn:hover {
     background-color: var(--wyvern-red-hover);
-    box-shadow: 0 0 25px var(--wyvern-red-glow);
+    box-shadow: 0 6px 25px var(--wyvern-red-glow);
     transform: translateY(-2px);
 }
 
 .big-cart-btn:disabled {
-    background-color: #555555 !important;
-    border-color: #555555 !important;
+    background-color: #64748b !important;
+    border-color: #64748b !important;
     cursor: not-allowed;
     transform: none !important;
     box-shadow: none !important;
@@ -273,7 +374,7 @@
     width: 100%;
 }
 
-/* --- 4. PANIER (MODAL DRAWER) --- */
+/* --- 5. PANIER (TIROIR MODAL) --- */
 .cart {
     position: fixed;
     top: 0;
@@ -282,12 +383,12 @@
     max-width: 480px;
     height: 100%;
     background-color: var(--bg-modal);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: var(--z-modal);
     display: flex;
     flex-direction: column;
-    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.6);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.45);
     border-left: 1px solid var(--border-color);
     transform: translateX(100%);
     visibility: hidden;
@@ -299,7 +400,6 @@
     visibility: visible;
 }
 
-/* Backdrop sombre pour le panier */
 .cart-backdrop {
     position: fixed;
     top: 0;
@@ -319,15 +419,16 @@
 }
 
 .cart-header {
-    padding: 24px;
+    padding: 24px 28px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--border-thin);
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-card);
 }
 
 .cart-header h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin: 0;
     color: var(--text-main);
 }
@@ -351,24 +452,26 @@
 .cart-items {
     flex-grow: 1;
     overflow-y: auto;
-    padding: 20px;
+    padding: 24px;
 }
 
 .cart-item {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    padding: 16px;
+    padding: 16px 20px;
     border-radius: var(--radius-md);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    transition: border-color var(--transition-fast);
+    gap: 14px;
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .cart-item:hover {
     border-color: var(--border-strong);
+    transform: translateY(-2px);
 }
 
 .cart-item-info {
@@ -377,27 +480,27 @@
 }
 
 .cart-item-info strong {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-main);
     display: block;
     margin-bottom: 4px;
 }
 
 .cart-item-meta {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-muted);
 }
 
 .cart-item-price {
     color: var(--wyvern-red);
-    font-weight: 700;
-    font-size: 1.1rem;
+    font-weight: 800;
+    font-size: 1.15rem;
 }
 
 .cart-item-actions {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .cart-qty-btn {
@@ -405,13 +508,13 @@
     color: var(--text-main);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.1rem;
     transition: all var(--transition-fast);
 }
 
@@ -422,9 +525,9 @@
 }
 
 .cart-item-qty {
-    min-width: 20px;
+    min-width: 22px;
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-main);
 }
 
@@ -432,7 +535,7 @@
     background: transparent;
     border: none;
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     cursor: pointer;
     padding: 6px;
     transition: color var(--transition-fast);
@@ -450,19 +553,19 @@
     justify-content: center;
     align-items: center;
     color: var(--text-muted);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     text-align: center;
     gap: 16px;
 }
 
 .cart-empty-message i {
-    font-size: 3.5rem;
+    font-size: 4rem;
     color: var(--border-strong);
 }
 
 .cart-footer {
-    padding: 24px;
-    border-top: 1px solid var(--border-thin);
+    padding: 24px 28px;
+    border-top: 1px solid var(--border-color);
     background: var(--bg-card);
 }
 
@@ -474,7 +577,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
 .total-price span {
@@ -482,7 +585,7 @@
     font-weight: bold;
 }
 
-/* --- 5. MODAL PARAMÈTRES --- */
+/* --- 6. MODAL PARAMÈTRES --- */
 .settings-modal {
     display: none;
     position: fixed;
@@ -490,9 +593,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: var(--z-modal);
     align-items: center;
     justify-content: center;
@@ -510,7 +613,7 @@
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     width: 100%;
-    max-width: 480px;
+    max-width: 460px;
     padding: 36px 30px;
     position: relative;
     animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -523,7 +626,7 @@
 }
 
 .settings-content h2 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     color: var(--text-main);
     margin-bottom: 28px;
     text-align: center;
@@ -533,7 +636,7 @@
 .settings-content h2::after {
     content: '';
     display: block;
-    width: 50px;
+    width: 60px;
     height: 3px;
     background: var(--wyvern-red);
     margin: 10px auto 0 auto;
@@ -544,7 +647,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 16px;
+    padding: 18px 20px;
     background: var(--bg-body);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
@@ -559,20 +662,21 @@
     border-color: var(--wyvern-red);
     background: var(--bg-card-hover);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .settings-option span {
     font-family: var(--font-title);
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     letter-spacing: 1px;
 }
 
 .settings-option i {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     color: var(--wyvern-red);
 }
 
-/* --- 6. MODAL ACTUALITÉS --- */
+/* --- 7. MODAL ACTUALITÉS --- */
 .modal {
     position: fixed;
     z-index: var(--z-modal);
@@ -581,9 +685,9 @@
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     display: none;
     align-items: center;
     justify-content: center;
@@ -626,7 +730,7 @@
 
 #modal-news-title {
     color: var(--wyvern-red);
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     margin-bottom: 12px;
 }
 
@@ -640,14 +744,14 @@
 }
 
 #modal-news-body {
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1.15rem;
+    line-height: 1.8;
     color: var(--text-secondary);
 }
 
-/* --- 7. FORMULAIRES & INPUTS --- */
+/* --- 8. FORMULAIRES & INPUTS --- */
 .input-group {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     text-align: left;
 }
 
@@ -656,18 +760,19 @@
     color: var(--text-secondary);
     margin-bottom: 8px;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .input-group input, .custom-select {
     width: 100%;
-    padding: 12px 16px;
+    padding: 13px 18px;
     background: var(--bg-input);
     border: 1px solid var(--border-color);
     color: var(--text-main);
     border-radius: var(--radius-sm);
     font-size: 1rem;
     outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -682,17 +787,17 @@
 }
 
 .password-wrapper input {
-    padding-right: 44px !important;
+    padding-right: 48px !important;
 }
 
 .toggle-password {
     position: absolute;
-    right: 14px;
+    right: 16px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     transition: color var(--transition-fast);
 }
 
@@ -704,35 +809,16 @@
     background-color: var(--wyvern-red-light);
     border: 1px solid var(--wyvern-red);
     color: #ff5252;
-    padding: 12px 16px;
+    padding: 14px 18px;
     border-radius: var(--radius-sm);
     margin-top: 18px;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
 }
 
-/* --- TOAST NOTIFICATIONS --- */
-.wyvern-toast {
-    position: fixed;
-    top: 90px;
-    right: 24px;
-    background-color: var(--bg-card);
-    color: var(--text-main);
-    border: 1px solid var(--wyvern-red);
-    padding: 14px 22px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    z-index: var(--z-toast);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 500;
-    animation: toastIn 0.3s ease-out;
-}
-
-.wyvern-toast.success {
-    border-color: var(--wyvern-green);
+body.light-mode .error-msg {
+    color: #be123c;
 }
 
 /* --- ANIMATIONS --- */
@@ -742,11 +828,6 @@
 }
 
 @keyframes scaleUp {
-    from { opacity: 0; transform: scale(0.95); }
+    from { opacity: 0; transform: scale(0.96); }
     to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes toastIn {
-    from { opacity: 0; transform: translateY(-15px); }
-    to { opacity: 1; transform: translateY(0); }
 }

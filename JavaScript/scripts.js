@@ -179,10 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Mise à jour éventuelle du logo dans le header
             const headerLogo = document.getElementById('header-logo');
             if (headerLogo) {
-                headerLogo.src = isLight ? 'Assets/images/logowyvern.png' : 'Assets/images/logowyvern.png';
+                headerLogo.src = 'Assets/images/logowyvern.png';
             }
-
-            window.showWyvernToast(isLight ? "☀️ Mode clair activé" : "🌙 Mode sombre activé");
         }
 
         const modalThemeToggle = document.getElementById('modal-theme-toggle');
@@ -300,7 +298,6 @@ document.addEventListener('DOMContentLoaded', () => {
             languageBtn.addEventListener('click', () => {
                 currentLang = currentLang === "fr" ? "en" : "fr";
                 loadLanguage(currentLang);
-                window.showWyvernToast(currentLang === 'fr' ? "🇫🇷 Langue : Français" : "🇬🇧 Language: English");
             });
         }
     }

@@ -13,7 +13,7 @@
     --z-modal: 1100;
     --z-toast: 1200;
 
-    /* --- BRAND COLORS --- */
+    /* --- COULEURS IDENTITÉ WYVERN (DÉFAUT SOMBRE) --- */
     --wyvern-red: #d32f2f;
     --wyvern-red-hover: #b71c1c;
     --wyvern-red-light: rgba(211, 47, 47, 0.15);
@@ -22,80 +22,101 @@
     --wyvern-green-glow: rgba(40, 167, 69, 0.4);
     --wyvern-gold: #ffd700;
 
-    /* --- GAME IDENTITY ACCENTS --- */
+    /* --- IDENTITÉS JEUX --- */
     --color-fortnite: #007bff;
-    --color-fortnite-hover: #0056b3;
     --color-overwatch: #f99e1a;
-    --color-overwatch-hover: #d88600;
     --color-valorant: #ff4655;
-    --color-valorant-hover: #dc3d48;
     --color-rocketleague: #00a2ff;
     --color-smash: #e63946;
 
-    /* --- THEME SOMBRE (DÉFAUT) --- */
-    --bg-body: #141416;
-    --bg-body-secondary: #1a1a1e;
-    --bg-header: rgba(18, 18, 20, 0.85);
-    --bg-card: #1f1f24;
-    --bg-card-hover: #27272e;
-    --bg-modal: rgba(14, 14, 16, 0.95);
-    --bg-navbar: rgba(26, 26, 30, 0.92);
-    --bg-input: #17171a;
+    /* --- THÈME SOMBRE (GAMING DARK) --- */
+    --bg-body: #111114;
+    --bg-body-secondary: #17171c;
+    --bg-header: rgba(17, 17, 20, 0.88);
+    --bg-card: #1c1c22;
+    --bg-card-hover: #24242c;
+    --bg-modal: rgba(14, 14, 18, 0.96);
+    --bg-navbar: rgba(24, 24, 30, 0.94);
+    --bg-input: #15151a;
 
     --text-main: #ffffff;
-    --text-secondary: #c4c4cc;
-    --text-muted: #8b8b99;
-    --text-inverse: #141416;
+    --text-secondary: #c8c8d2;
+    --text-muted: #868696;
+    --text-inverse: #111114;
 
-    --border-color: rgba(255, 255, 255, 0.12);
-    --border-strong: rgba(255, 255, 255, 0.22);
-    --border-thin: rgba(255, 255, 255, 0.08);
+    --border-color: rgba(255, 255, 255, 0.13);
+    --border-strong: rgba(255, 255, 255, 0.28);
+    --border-thin: rgba(255, 255, 255, 0.07);
 
-    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.35);
-    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.55);
-    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.75);
+    --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.8);
 
     --grid-line-color: rgba(255, 255, 255, 0.035);
+
+    /* --- PLACEHOLDER BOX TOKENS --- */
+    --placeholder-bg: rgba(255, 255, 255, 0.03);
+    --placeholder-border: rgba(255, 255, 255, 0.25);
+    --placeholder-text: #9ca3af;
+    --placeholder-hover-border: var(--wyvern-red);
 
     /* --- TYPOGRAPHIE --- */
     --font-title: 'Bebas Neue', Impact, 'Arial Black', sans-serif;
     --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 
     /* --- RADIUS --- */
-    --radius-sm: 6px;
-    --radius-md: 12px;
-    --radius-lg: 20px;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
     --radius-full: 9999px;
 
     /* --- TRANSITIONS --- */
-    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- THEME CLAIR --- */
+/* ============================================================
+   THÈME CLAIR (TACTICAL SLATE / REFONTE HAUTE LISIBILITÉ)
+   Fond ardoise doux (ni éblouissant ni blanc plat) + cartes nettes
+   ============================================================ */
 body.light-mode {
-    --bg-body: #f3f4f6;
-    --bg-body-secondary: #e5e7eb;
-    --bg-header: rgba(255, 255, 255, 0.9);
-    --bg-card: #ffffff;
-    --bg-card-hover: #f9fafb;
-    --bg-modal: rgba(255, 255, 255, 0.98);
-    --bg-navbar: rgba(255, 255, 255, 0.95);
+    --wyvern-red: #c9183b;
+    --wyvern-red-hover: #a5112f;
+    --wyvern-red-light: rgba(201, 24, 59, 0.14);
+    --wyvern-red-glow: rgba(201, 24, 59, 0.3);
+
+    /* Palette ardoise / titanium */
+    --bg-body: #e2e8f0;            /* Gris ardoise équilibré, zéro éblouissement */
+    --bg-body-secondary: #cbd5e1;  /* Ardoise plus prononcé pour séparations */
+    --bg-header: rgba(226, 232, 240, 0.94);
+    --bg-card: #ffffff;            /* Carte blanche pure se détachant nettement du fond */
+    --bg-card-hover: #f8fafc;
+    --bg-modal: rgba(241, 245, 249, 0.98);
+    --bg-navbar: rgba(255, 255, 255, 0.96);
     --bg-input: #ffffff;
 
-    --text-main: #111827;
-    --text-secondary: #374151;
-    --text-muted: #6b7280;
+    /* Typographie ultra-contrastée */
+    --text-main: #090d16;          /* Noir encre profond pour lisibilité parfaite */
+    --text-secondary: #1e293b;     /* Gris sombre très lisible (sans fatigue visuelle) */
+    --text-muted: #475569;         /* Gris moyen pour dates et sous-titres */
     --text-inverse: #ffffff;
 
-    --border-color: rgba(0, 0, 0, 0.1);
-    --border-strong: rgba(0, 0, 0, 0.2);
-    --border-thin: rgba(0, 0, 0, 0.06);
+    /* Bordures marquées */
+    --border-color: rgba(15, 23, 42, 0.18);
+    --border-strong: rgba(15, 23, 42, 0.36);
+    --border-thin: rgba(15, 23, 42, 0.1);
 
-    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.12);
-    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.16);
+    /* Ombres renforcées pour détacher les cartes */
+    --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.08);
+    --shadow-md: 0 10px 25px rgba(15, 23, 42, 0.14);
+    --shadow-lg: 0 18px 40px rgba(15, 23, 42, 0.2);
 
-    --grid-line-color: rgba(0, 0, 0, 0.04);
+    --grid-line-color: rgba(15, 23, 42, 0.05);
+
+    /* Placeholders en thème clair */
+    --placeholder-bg: rgba(15, 23, 42, 0.04);
+    --placeholder-border: rgba(15, 23, 42, 0.28);
+    --placeholder-text: #475569;
+    --placeholder-hover-border: var(--wyvern-red);
 }
