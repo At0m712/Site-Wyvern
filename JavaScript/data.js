@@ -54,45 +54,48 @@ export const DEFAULT_RESULTS = [
 export const DEFAULT_PRODUCTS = [
     {
         id: "T-Shirt Wyvern",
-        nom: "T-shirt Wyvern Officiel",
+        nom: "Maillot Officiel Wyvern 2026",
         prix: 79.99,
         image_url: "Assets/Produit/maillotnoir_F.png",
         image_dos: "Assets/Produit/maillotnoir_B.png",
         lien_page: "produit.html",
-        description: "Ce maillot officiel en coton haute performance affiche fièrement les couleurs de Wyvern. Coupe ajustée, tissu respirant pensé pour les longues sessions de compétition."
+        description: "Maillot officiel de compétition Wyvern E-sport. Tissu technique micro-perforé ultra-respirant, coupe athlétique pensée pour un confort optimal en compétition."
     },
     {
         id: "Veste Wyvern",
-        nom: "Veste Zippée Wyvern",
-        prix: 104.99,
+        nom: "Veste Zippée Wyvern Pro",
+        prix: 109.99,
         image_url: "Assets/Produit/vestenoir_F.png",
         image_dos: "Assets/Produit/vestenoir_B.png",
         lien_page: "produit2.html",
-        description: "Veste officielle esport avec logo Wyvern brodé sur le torse. Matériaux premium thermorégulateurs avec capuche ajustable et fermeture zippée renforcée."
+        description: "Veste officielle à capuche et zip intégral. Molleton technique isolant thermorégulateur, col montant protecteur et poches zippées renforcées."
     },
     {
-        id: "Enjoliver Wyvern",
-        nom: "Enjoliveur Performance Wyvern",
-        prix: 4999.99,
-        image_url: "Assets/Produit/Enjoliver_Wyvern.png",
+        id: "Tapis de Souris XL",
+        nom: "Tapis de Souris XL Wyvern Speed",
+        prix: 29.99,
+        image_url: "",
+        image_dos: "",
         lien_page: "produit3.html",
-        description: "Accessoire collector Wyvern pour véhicules et setups personnalisés. Finition carbone et découpe laser."
+        description: "Tapis de souris esport grand format (900x400mm). Surface textile micro-tissée pour une glisse fluide et réactive, base en caoutchouc antidérapant et bords brodés anti-effilochement."
     },
     {
-        id: "Lexus LFA",
-        nom: "Lexus LFA - Édition Circuit",
-        prix: 3750.00,
-        image_url: "Assets/Produit/LexusLFA.png",
-        lien_page: "shop.html",
-        description: "Modèle réduit collector d'ingénierie sportive japonaise aux finitions compétition d'orfèvre."
+        id: "Casquette Wyvern",
+        nom: "Casquette Snapback Wyvern",
+        prix: 24.99,
+        image_url: "",
+        image_dos: "",
+        lien_page: "produit4.html",
+        description: "Casquette snapback structurée avec logo Wyvern brodé sur la face avant. Visière rigide, attache ajustable à l'arrière et bandeau anti-transpiration intérieur."
     },
     {
-        id: "Porsche 911",
-        nom: "Porsche 911 GT3 RS",
-        prix: 2950.00,
-        image_url: "Assets/Produit/Porsche911GT3Rs.png",
-        lien_page: "shop.html",
-        description: "L'icône absolue des circuits internationaux en édition limitée pour collectionneurs avertis."
+        id: "Manchette Esport",
+        nom: "Manchette de Compression Gaming",
+        prix: 19.99,
+        image_url: "",
+        image_dos: "",
+        lien_page: "produit5.html",
+        description: "Manchette technique de compression pour joueurs esport. Réduit les frictions sur le bureau, favorise la circulation sanguine et améliore la constance des mouvements de visée."
     }
 ];
 

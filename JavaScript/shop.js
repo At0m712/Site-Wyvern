@@ -45,10 +45,14 @@ async function chargerBoutique() {
             ? (prixNum >= 1000 ? new Intl.NumberFormat('fr-FR').format(prixNum) + '€' : prixNum.toFixed(2) + '€')
             : (produit.prix || 'Sur devis');
 
+        const imageHTML = produit.image_url && produit.image_url.trim() !== ''
+            ? `<img src="${produit.image_url}" alt="${produit.nom}" loading="lazy">`
+            : `<div class="product-placeholder-square"><i class="fas fa-image"></i><span>Insérer Image</span></div>`;
+
         const carteHTML = `
             <a href="${produit.lien_page || 'shop.html'}" class="shop-card">
                 <div class="shop-card-image">
-                    <img src="${produit.image_url}" alt="${produit.nom}" loading="lazy">
+                    ${imageHTML}
                 </div>
                 <div class="shop-card-info">
                     <h3 class="shop-card-title">${produit.nom}</h3>
