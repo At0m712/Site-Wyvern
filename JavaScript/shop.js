@@ -40,6 +40,11 @@ async function chargerBoutique() {
     }
 
     articles.forEach((produit) => {
+        const prixNum = Number(produit.prix);
+        const prixAffiche = !isNaN(prixNum)
+            ? (prixNum >= 1000 ? new Intl.NumberFormat('fr-FR').format(prixNum) + '€' : prixNum.toFixed(2) + '€')
+            : (produit.prix || 'Sur devis');
+
         const carteHTML = `
             <a href="${produit.lien_page || 'shop.html'}" class="shop-card">
                 <div class="shop-card-image">
@@ -47,7 +52,7 @@ async function chargerBoutique() {
                 </div>
                 <div class="shop-card-info">
                     <h3 class="shop-card-title">${produit.nom}</h3>
-                    <span class="shop-card-price">${Number(produit.prix).toFixed(2)}€</span>
+                    <span class="shop-card-price">${prixAffiche}</span>
                     <span class="shop-btn"><i class="fas fa-eye"></i> Voir le produit</span>
                 </div>
             </a>

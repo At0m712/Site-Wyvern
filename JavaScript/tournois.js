@@ -51,14 +51,28 @@ async function chargerTournois() {
 
         let dateFormatee = "Date à définir";
         if (tournoi.date_texte && typeof tournoi.date_texte.toDate === 'function') {
-            const dateJs = tournoi.date_texte.toDate();
-            dateFormatee = dateJs.toLocaleDateString('fr-FR', {
+            dateFormatee = tournoi.date_texte.toDate().toLocaleDateString('fr-FR', {
                 day: 'numeric',
                 month: 'long',
                 year: 'numeric'
             });
-        } else if (tournoi.date_texte) {
-            dateFormatee = tournoi.date_texte;
+        } else if (tournoi.date_texte && tournoi.date_texte.seconds) {
+            dateFormatee = new Date(tournoi.date_texte.seconds * 1000).toLocaleDateString('fr-FR', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+        } else if (typeof tournoi.date_texte === 'string') {
+            const dateParsed = new Date(tournoi.date_texte);
+            if (!isNaN(dateParsed.getTime()) && tournoi.date_texte.includes('-')) {
+                dateFormatee = dateParsed.toLocaleDateString('fr-FR', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+            } else {
+                dateFormatee = tournoi.date_texte;
+            }
         }
 
         const statut = tournoi.statut || tournoi.Statut || "Inscriptions Ouvertes";
@@ -116,11 +130,12 @@ async function chargerResultats() {
     }
 
     listeResultats.forEach((resultat) => {
+        const nomGagnant = resultat.gagnant || resultat["gagnant "] || "Team Wyvern";
         const carteHTML = `
             <div class="result-box">
                 <span class="winner-badge"><i class="fas fa-crown"></i> VICTOIRE</span>
                 <h3>${resultat.nom || "Tournoi Majeur"}</h3>
-                <p class="result-team"><i class="fas fa-trophy"></i> ${resultat.gagnant || "Team Wyvern"}</p>
+                <p class="result-team"><i class="fas fa-trophy"></i> ${nomGagnant}</p>
                 <p class="result-score">${resultat.score || "Top 1 Européen"}</p>
             </div>
         `;

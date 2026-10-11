@@ -25,10 +25,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             const data = produitSnap.data();
             const stocks = data.stock;
 
+            // Synchronisation du prix en direct depuis Firestore
+            if (data.prix !== undefined) {
+                const prixElement = document.querySelector('.product-main-price');
+                if (prixElement) {
+                    const prixNum = Number(data.prix);
+                    prixElement.innerText = prixNum >= 1000 
+                        ? new Intl.NumberFormat('fr-FR').format(prixNum) + '€' 
+                        : prixNum.toFixed(2) + '€';
+                }
+                btnAjout.setAttribute('data-price', data.prix);
+            }
+
             if (stocks) {
                 Array.from(selectTaille.options).forEach(option => {
                     const taille = option.value;
-                    if (stocks[taille] === undefined || stocks[taille] <= 0) {
+                    const quantite = stocks[taille] !== undefined ? parseInt(stocks[taille], 10) : NaN;
+                    if (isNaN(quantite) || quantite <= 0) {
                         option.disabled = true;
                         option.text += " (Épuisé)";
                     }

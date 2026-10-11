@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexus LFA | Wyvern E-sport</title>
+    <meta name="description" content="Découvrez la mythique Lexus LFA édition d'exception Wyvern E-sport.">
+    <meta name="author" content="Mathis ALLEWEIRELDT">
+    <link rel="icon" type="image/png" href="Assets/images/logowyvern.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="Styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script type="module" src="JavaScript/scripts.js" defer></script>
+    <script type="module" src="JavaScript/produit.js" defer></script>
+    <script type="module" src="JavaScript/checkout.js" defer></script>
+</head>
+<body>
+
+    <!-- Header Supérieur Fixe -->
+    <header class="transparent-header"></header>
+
+    <main>
+        <section class="product-showcase">
+            
+            <!-- Galerie photo -->
+            <div class="product-image-box">
+                <img src="Assets/Produit/LexusLFA.png" class="prod-img active" alt="Lexus LFA Wyvern">
+            </div>
+
+            <!-- Détails du produit -->
+            <div class="product-info-box">
+                <a href="shop.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Retour à la boutique
+                </a>
+                
+                <h1 id="product-title" class="product-main-title">Lexus LFA</h1>
+                <span id="product-price" class="product-main-price">15 000 000€</span>
+                
+                <p id="product-description" class="product-desc">
+                    L'acoustique légendaire d'un V10 développé comme un instrument de musique, 
+                    châssis monocoque en polymère renforcé de fibres de carbone (CFRP). Une icône intemporelle signée Wyvern.
+                </p>
+                
+                <div class="size-selector-group">
+                    <label for="size" id="size-label" class="size-label">Modèle :</label>
+                    <select id="size" name="size" class="custom-select">
+                        <option value="Unique" selected>Édition V10 Nürburgring</option>
+                    </select>
+                </div>
+                
+                <button class="add-to-cart big-cart-btn" 
+                        data-id="Lexus LFA"
+                        data-product="Lexus LFA" 
+                        data-price="15000000" 
+                        id="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> 
+                    <span id="add-to-cart-text">Ajouter au panier</span>
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Conteneurs dynamiques -->
+    <div id="navbar-container"></div>
+    <div id="modal-settings"></div>
+    <div id="cart-modal"></div>
+
+</body>
+</html>
