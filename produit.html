@@ -3,74 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Maillot | Wyvern</title>
-    <meta name="description" content="Page Produit_maillot">
+    <title>Maillot Officiel | Wyvern E-sport</title>
+    <meta name="description" content="Achetez le maillot officiel de compétition Wyvern E-sport.">
     <meta name="author" content="Mathis ALLEWEIRELDT">
-    <link rel="icon" type="image" href="Assets/images/logowyvern.png">
+    <link rel="icon" type="image/png" href="Assets/images/logowyvern.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="Styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="JavaScript/scripts.js" defer></script>
+    <script type="module" src="JavaScript/scripts.js" defer></script>
     <script type="module" src="JavaScript/produit.js" defer></script>
     <script type="module" src="JavaScript/checkout.js" defer></script>
 </head>
 <body>
 
-    <div class="transparent-header">
-        <button id="language-btn" class="language-btn">Fr</button>
-        <button id="cart-btn" class="cart-btn">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cart-count" class="cart-count">0</span>
-        </button>
-    </div>
+    <!-- Header Supérieur Fixe -->
+    <header class="transparent-header"></header>
 
-    <section class="product-showcase">
-        
-       <div class="product-image-box carousel-wrapper">
-    <img src="Assets/Produit/maillotnoir_F.png" class="prod-img active" alt="T-shirt Face">
-    
-    <img src="Assets/Produit/maillotnoir_B.png" class="prod-img" alt="T-shirt Dos">
-    
-    <button class="mini-arrow prev">&lt;</button>
-    <button class="mini-arrow next">&gt;</button>
-</div>
-
-
-        <div class="product-info-box">
-            <a href="shop.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour à la boutique</a>
+    <main>
+        <section class="product-showcase">
             
-            <h1 id="product-title" class="product-main-title">T-shirt Wyvern</h1>
-            <span id="product-price1" class="product-main-price">79.99€</span>
-            
-            <p id="product-description" class="product-desc">
-                Ce T-shirt en coton affiche fièrement les couleurs de Wyvern. 
-                Coupe ajustée, matière respirante idéale pour les longues sessions de jeu ou pour supporter votre équipe en LAN.
-            </p>
-            
-            <div class="size-selector-group">
-                <label for="size" id="size-label" class="size-label">Choisir une taille :</label>
-                <select id="size" name="size" class="custom-select">
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
+            <!-- Galerie photo avec bascule Face / Dos -->
+            <div class="product-image-box carousel-wrapper">
+                <img src="Assets/Produit/maillotnoir_F.png" class="prod-img active" alt="Maillot Wyvern Face">
+                <img src="Assets/Produit/maillotnoir_B.png" class="prod-img" alt="Maillot Wyvern Dos">
+                
+                <button class="mini-arrow prev" aria-label="Photo précédente">&lt;</button>
+                <button class="mini-arrow next" aria-label="Photo suivante">&gt;</button>
             </div>
-            
-            <button class="add-to-cart big-cart-btn" 
-                    data-id="T-Shirt Wyvern"
-                    data-product="T-shirt Wyvern" 
-                    data-price="79.99" 
-                    id="add-to-cart-btn">
-                <i class="fas fa-plus"></i> <span id="add-to-cart-text">Ajouter au panier</span>
-            </button>
-        </div>
 
-    </section>
-    
+            <!-- Détails du produit -->
+            <div class="product-info-box">
+                <a href="shop.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Retour à la boutique
+                </a>
+                
+                <h1 id="product-title" class="product-main-title">T-shirt Wyvern Officiel</h1>
+                <span id="product-price1" class="product-main-price">79.99€</span>
+                
+                <p id="product-description" class="product-desc">
+                    Ce maillot officiel en microfibre technique affiche fièrement les armoiries de Wyvern E-sport. 
+                    Coupe ajustée athlétique, tissu micro-perforé ultra respirant pensé pour les longues sessions de compétition en LAN ou à la maison.
+                </p>
+                
+                <div class="size-selector-group">
+                    <label for="size" id="size-label" class="size-label">Sélectionner une taille :</label>
+                    <select id="size" name="size" class="custom-select">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                
+                <button class="add-to-cart big-cart-btn" 
+                        data-id="T-Shirt Wyvern"
+                        data-product="T-shirt Wyvern Officiel" 
+                        data-price="79.99" 
+                        id="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> 
+                    <span id="add-to-cart-text">Ajouter au panier</span>
+                </button>
+            </div>
 
-<div id="navbar-container"></div>
-<div id="cart-modal"></div>
+        </section>
+    </main>
+
+    <!-- Conteneurs dynamiques -->
+    <div id="navbar-container"></div>
+    <div id="modal-settings"></div>
+    <div id="cart-modal"></div>
+
 </body>
 </html>

@@ -1,0 +1,101 @@
+/* ============================================================
+   WYVERN E-SPORT - DESIGN SYSTEM & VARIABLES
+   Styles/variables.css
+   ============================================================ */
+
+:root {
+    /* --- Z-INDEX LAYERS --- */
+    --z-base: 1;
+    --z-dropdown: 50;
+    --z-floatingbar: 100;
+    --z-header: 500;
+    --z-overlay: 1000;
+    --z-modal: 1100;
+    --z-toast: 1200;
+
+    /* --- BRAND COLORS --- */
+    --wyvern-red: #d32f2f;
+    --wyvern-red-hover: #b71c1c;
+    --wyvern-red-light: rgba(211, 47, 47, 0.15);
+    --wyvern-red-glow: rgba(211, 47, 47, 0.45);
+    --wyvern-green: #28a745;
+    --wyvern-green-glow: rgba(40, 167, 69, 0.4);
+    --wyvern-gold: #ffd700;
+
+    /* --- GAME IDENTITY ACCENTS --- */
+    --color-fortnite: #007bff;
+    --color-fortnite-hover: #0056b3;
+    --color-overwatch: #f99e1a;
+    --color-overwatch-hover: #d88600;
+    --color-valorant: #ff4655;
+    --color-valorant-hover: #dc3d48;
+    --color-rocketleague: #00a2ff;
+    --color-smash: #e63946;
+
+    /* --- THEME SOMBRE (DÉFAUT) --- */
+    --bg-body: #141416;
+    --bg-body-secondary: #1a1a1e;
+    --bg-header: rgba(18, 18, 20, 0.85);
+    --bg-card: #1f1f24;
+    --bg-card-hover: #27272e;
+    --bg-modal: rgba(14, 14, 16, 0.95);
+    --bg-navbar: rgba(26, 26, 30, 0.92);
+    --bg-input: #17171a;
+
+    --text-main: #ffffff;
+    --text-secondary: #c4c4cc;
+    --text-muted: #8b8b99;
+    --text-inverse: #141416;
+
+    --border-color: rgba(255, 255, 255, 0.12);
+    --border-strong: rgba(255, 255, 255, 0.22);
+    --border-thin: rgba(255, 255, 255, 0.08);
+
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.55);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.75);
+
+    --grid-line-color: rgba(255, 255, 255, 0.035);
+
+    /* --- TYPOGRAPHIE --- */
+    --font-title: 'Bebas Neue', Impact, 'Arial Black', sans-serif;
+    --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+    /* --- RADIUS --- */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-full: 9999px;
+
+    /* --- TRANSITIONS --- */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- THEME CLAIR --- */
+body.light-mode {
+    --bg-body: #f3f4f6;
+    --bg-body-secondary: #e5e7eb;
+    --bg-header: rgba(255, 255, 255, 0.9);
+    --bg-card: #ffffff;
+    --bg-card-hover: #f9fafb;
+    --bg-modal: rgba(255, 255, 255, 0.98);
+    --bg-navbar: rgba(255, 255, 255, 0.95);
+    --bg-input: #ffffff;
+
+    --text-main: #111827;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    --text-inverse: #ffffff;
+
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-strong: rgba(0, 0, 0, 0.2);
+    --border-thin: rgba(0, 0, 0, 0.06);
+
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.16);
+
+    --grid-line-color: rgba(0, 0, 0, 0.04);
+}

@@ -1,6 +1,12 @@
-import { app } from "./firebase-config.js";
+/* ============================================================
+   WYVERN E-SPORT - GESTION DE LA BOUTIQUE
+   JavaScript/shop.js
+   Chargement Hybride (Firestore + Fallback Local Résilient)
+   ============================================================ */
 
+import { app } from "./firebase-config.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { DEFAULT_PRODUCTS } from "./data.js";
 
 const db = getFirestore(app);
 
@@ -8,46 +14,46 @@ async function chargerBoutique() {
     const conteneur = document.getElementById('shop-container');
     if (!conteneur) return;
 
-    conteneur.innerHTML = '<p style="color: white; text-align: center; grid-column: 1 / -1;">Chargement de l\'armurerie...</p>';
+    conteneur.innerHTML = '<p style="color: var(--text-secondary); text-align: center; grid-column: 1 / -1; padding: 30px;">Chargement de l\'armurerie Wyvern...</p>';
+
+    let articles = [];
 
     try {
-        // On cible la collection "produits" de ta base de données
         const requete = await getDocs(collection(db, "Article"));
-        conteneur.innerHTML = '';
-
-        if (requete.empty) {
-            conteneur.innerHTML = '<p style="color: #bbb; text-align: center; grid-column: 1 / -1;">La boutique est vide pour le moment.</p>';
-            return;
+        if (!requete.empty) {
+            requete.forEach((doc) => {
+                articles.push({ id: doc.id, ...doc.data() });
+            });
+        } else {
+            articles = DEFAULT_PRODUCTS;
         }
-
-        // On crée une carte pour chaque produit trouvé
-        requete.forEach((doc) => {
-            const produit = doc.data();
-            
-            // On réutilise exactement tes classes CSS (shop-card, shop-card-image, etc.)
-            const carteHTML = `
-                <a href="${produit.lien_page}" class="shop-card">
-                    <div class="shop-card-image">
-                        <img src="${produit.image_url}" alt="${produit.nom}" loading="lazy">
-                    </div>
-                    <div class="shop-card-info">
-                        <h3 class="shop-card-title">${produit.nom}</h3>
-                        <span class="shop-card-price">${produit.prix}€</span>
-                        <span class="shop-btn">Voir le produit</span>
-                    </div>
-                </a>
-            `;
-            
-            conteneur.innerHTML += carteHTML;
-        });
-
     } catch (erreur) {
-        console.error("Erreur de chargement de la boutique : ", erreur);
-        conteneur.innerHTML = '<p style="color: #ff5252; text-align: center; grid-column: 1 / -1;">Erreur réseau.</p>';
+        console.warn("Firestore non joignable pour les articles, affichage des produits officiels :", erreur);
+        articles = DEFAULT_PRODUCTS;
     }
+
+    conteneur.innerHTML = '';
+
+    if (articles.length === 0) {
+        conteneur.innerHTML = '<p style="color: var(--text-muted); text-align: center; grid-column: 1 / -1; padding: 40px;">Boutique en cours de réapprovisionnement.</p>';
+        return;
+    }
+
+    articles.forEach((produit) => {
+        const carteHTML = `
+            <a href="${produit.lien_page || 'shop.html'}" class="shop-card">
+                <div class="shop-card-image">
+                    <img src="${produit.image_url}" alt="${produit.nom}" loading="lazy">
+                </div>
+                <div class="shop-card-info">
+                    <h3 class="shop-card-title">${produit.nom}</h3>
+                    <span class="shop-card-price">${Number(produit.prix).toFixed(2)}€</span>
+                    <span class="shop-btn"><i class="fas fa-eye"></i> Voir le produit</span>
+                </div>
+            </a>
+        `;
+        conteneur.insertAdjacentHTML('beforeend', carteHTML);
+    });
 }
 
-
-
-// On lance le chargement au démarrage de la page
 document.addEventListener('DOMContentLoaded', chargerBoutique);

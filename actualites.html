@@ -3,83 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Actualités | Wyvern</title>
-    <meta name="description" content="Page Actualités">
+    <title>Actualités | Wyvern E-sport</title>
+    <meta name="description" content="Toutes les actualités officielles et communiqués de la structure Wyvern E-sport.">
     <meta name="author" content="Mathis ALLEWEIRELDT">
-    <link rel="icon" type="image" href="Assets/images/logowyvern.png">
+    <link rel="icon" type="image/png" href="Assets/images/logowyvern.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="Styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="JavaScript/scripts.js" defer></script>
+    <script type="module" src="JavaScript/scripts.js" defer></script>
 </head>
 <body>
 
-    <div class="transparent-header">
-        <button id="language-btn" class="language-btn">Fr</button>
-        <button id="settings-btn" class="settings-btn">
-        <i class="fas fa-cog"></i>
-    </button>
-    </div>
+    <!-- Header Supérieur Fixe -->
+    <header class="transparent-header"></header>
 
-    <header class="news-hero">
-        <h1 id="news-title">Dernières Infos</h1>
-        <p>L'actualité brûlante de la Wyvern</p>
-    </header>
-
-    <section class="news">
-        <div class="news-grid">
-
-            <article class="news-card">
-                <div class="news-date">
-                    <i class="far fa-calendar-alt"></i>
-                    <span id="news-1-date"></span>
-                </div>
-                <h3 id="news-1-title" class="news-title"></h3>
-                <p id="news-1-content" class="news-content">
-                    
-                </p>
-                <a href="#" class="read-more">Lire l'article &rarr;</a>
-            </article>
-
-            <article class="news-card">
-                <div class="news-date">
-                    <i class="far fa-calendar-alt"></i>
-                    <span id="news-2-date"></span>
-                </div>
-                <h3 id="news-2-title" class="news-title"></h3>
-                <p id="news-2-content" class="news-content">
-                    
-                </p>
-                <a href="#" class="read-more">Lire l'article &rarr;</a>
-            </article>
-
-            <article class="news-card">
-                <div class="news-date">
-                    <i class="far fa-calendar-alt"></i>
-                    <span id="news-3-date"></span>
-                </div>
-                <h3 id="news-3-title" class="news-title"></h3>
-                <p id="news-3-content" class="news-content">
-                    
-                </p>
-                <a href="#" class="read-more">Lire l'article &rarr;</a>
-            </article>
-
+    <main>
+        <div class="news-hero">
+            <h1 id="news-title">Dernières Infos</h1>
+            <p>L'actualité brûlante, annonces et coulisses de la Wyvern</p>
         </div>
-    </section>
 
-    
+        <section class="news">
+            <div class="news-grid">
 
-    <div id="news-modal" class="modal hidden">
-        <div class="modal-content news-modal-content">
-            <span class="close-news-btn">&times;</span>
-            <h2 id="modal-news-title"></h2>
-            <div id="modal-news-body"></div>
+                <article class="news-card" data-id="news-1">
+                    <div class="news-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span id="news-1-date">6 Octobre 2025</span>
+                    </div>
+                    <h3 id="news-1-title" class="news-title">Communiqué : Exclusion de CCLP</h3>
+                    <p id="news-1-content" class="news-content">
+                        Le joueur CCLP a été officiellement écarté de la formation Wyvern suite à une tentative avérée de sabotage interne.
+                    </p>
+                    <a href="#" class="read-more">Lire l'article &rarr;</a>
+                </article>
+
+                <article class="news-card" data-id="news-2">
+                    <div class="news-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span id="news-2-date">30 Juin 2024</span>
+                    </div>
+                    <h3 id="news-2-title" class="news-title">Victoire au Tournoi de Floorball à Amiens</h3>
+                    <p id="news-2-content" class="news-content">
+                        L'équipe Wyvern a participé avec brio à la compétition inter-structures de floorball organisée à Amiens et décroche la coupe !
+                    </p>
+                    <a href="#" class="read-more">Lire l'article &rarr;</a>
+                </article>
+
+                <article class="news-card" data-id="news-3">
+                    <div class="news-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span id="news-3-date">20 Mars 2025</span>
+                    </div>
+                    <h3 id="news-3-title" class="news-title">Prolongation de Contrat pour JUZOU14</h3>
+                    <p id="news-3-content" class="news-content">
+                        Notre joueur vedette Juzou14 prolonge son engagement au sein de l'arène Wyvern pour deux saisons supplémentaires !
+                    </p>
+                    <a href="#" class="read-more">Lire l'article &rarr;</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Modal de lecture des actualités -->
+        <div id="news-modal" class="modal" role="dialog" aria-modal="true">
+            <div class="modal-content news-modal-content">
+                <span class="close-news-btn" aria-label="Fermer la fenêtre">&times;</span>
+                <h2 id="modal-news-title">Titre de l'article</h2>
+                <div id="modal-news-body">Contenu complet de l'article...</div>
+            </div>
         </div>
-    </div>
+    </main>
 
-<div id="navbar-container"></div>
-<div id="modal-settings"></div>
+    <!-- Conteneurs dynamiques -->
+    <div id="navbar-container"></div>
+    <div id="modal-settings"></div>
+    <div id="cart-modal"></div>
+
 </body>
 </html>

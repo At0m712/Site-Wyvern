@@ -1,8 +1,14 @@
+/* ============================================================
+   WYVERN E-SPORT - GESTION DES TOURNOIS & RÉSULTATS
+   JavaScript/tournois.js
+   Chargement Hybride (Firestore + Fallback Local Résilient)
+   ============================================================ */
+
 import { app } from "./firebase-config.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { DEFAULT_TOURNAMENTS, DEFAULT_RESULTS } from "./data.js";
 
 const db = getFirestore(app);
-
 
 const logos = {
     "fortnite": "Assets/images/Fortnite-logo.svg",
@@ -14,111 +20,112 @@ async function chargerTournois() {
     const conteneur = document.getElementById('tournaments-container');
     if (!conteneur) return;
 
-    conteneur.innerHTML = '<p style="color: white; text-align: center;">Recherche des tournois dans l\'arène...</p>';
+    conteneur.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 20px;">Chargement des tournois dans l\'arène...</p>';
+
+    let listeTournois = [];
 
     try {
-        
         const requete = await getDocs(collection(db, "Tournois"));
-        conteneur.innerHTML = '';
+        if (!requete.empty) {
+            requete.forEach((doc) => {
+                listeTournois.push({ id: doc.id, ...doc.data() });
+            });
+        } else {
+            listeTournois = DEFAULT_TOURNAMENTS;
+        }
+    } catch (erreur) {
+        console.warn("Firestore non accessible pour les tournois, utilisation des données locales :", erreur);
+        listeTournois = DEFAULT_TOURNAMENTS;
+    }
 
-        if (requete.empty) {
-            conteneur.innerHTML = '<p style="color: #bbb; text-align: center;">Aucun tournoi de prévu pour le moment.</p>';
-            return;
+    conteneur.innerHTML = '';
+
+    if (listeTournois.length === 0) {
+        conteneur.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 30px;">Aucun tournoi disponible pour le moment.</p>';
+        return;
+    }
+
+    listeTournois.forEach((tournoi) => {
+        const jeuId = (tournoi.jeu || "inconnu").toLowerCase();
+        const logoSrc = logos[jeuId] || "Assets/images/logowyvern.png";
+
+        let dateFormatee = "Date à définir";
+        if (tournoi.date_texte && typeof tournoi.date_texte.toDate === 'function') {
+            const dateJs = tournoi.date_texte.toDate();
+            dateFormatee = dateJs.toLocaleDateString('fr-FR', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+        } else if (tournoi.date_texte) {
+            dateFormatee = tournoi.date_texte;
         }
 
-        
-        requete.forEach((doc) => {
-    const tournoi = doc.data();
-    const jeuId = tournoi.jeu ? tournoi.jeu.toLowerCase() : "inconnu"; 
-    const logoSrc = logos[jeuId] || "";
+        const statut = tournoi.statut || tournoi.Statut || "Inscriptions Ouvertes";
 
-    
-    
-    let dateFormatee = "Date à définir";
-    
-    
-    if (tournoi.date_texte && typeof tournoi.date_texte.toDate === 'function') {
-        const dateJs = tournoi.date_texte.toDate(); 
-        dateFormatee = dateJs.toLocaleDateString('fr-FR', { 
-            day: 'numeric', 
-            month: 'long', 
-            year: 'numeric' 
-        });
-    } else if (tournoi.date_texte) {
-        
-        dateFormatee = tournoi.date_texte;
-    }
-
-    
-    
-    const statut = tournoi.statut || tournoi.Statut || "Non défini";
-
-    
-    const carteHTML = `
-        <div class="tournament-details-card tab-content active card-${jeuId}" data-game="${jeuId}">
-            <div class="card-header-flex">
-                <div>
-                    <h3 class="card-title">${tournoi.nom || "Tournoi sans nom"}</h3>
-                    <p class="card-date">📅 ${dateFormatee}</p>
+        const carteHTML = `
+            <div class="tournament-details-card card-${jeuId}" data-game="${jeuId}">
+                <div class="card-header-flex">
+                    <div>
+                        <h3 class="card-title">${tournoi.nom || "Tournoi Officiel"}</h3>
+                        <p class="card-date">📅 ${dateFormatee}</p>
+                    </div>
+                    <img src="${logoSrc}" alt="Logo ${jeuId}" class="card-game-logo">
                 </div>
-                <img src="${logoSrc}" alt="Logo ${tournoi.jeu}" class="card-game-logo">
+                <hr class="card-divider">
+                <p class="card-status"><i class="fas fa-signal"></i> Inscription : ${statut}</p>
+                <a href="${tournoi.lien_discord || 'https://discord.gg/sC7ng6QbCN'}" target="_blank" rel="noopener noreferrer" class="card-btn btn-${jeuId}">
+                    <i class="fab fa-discord"></i> S'inscrire sur Discord
+                </a>
             </div>
-            <hr class="card-divider">
-            <p class="card-status">Inscription : ${statut}</p>
-            <br>
-            <a href="${tournoi.lien_discord || '#'}" target="_blank" class="card-btn btn-${jeuId} discord-register">
-                S'inscrire sur Discord
-            </a>
-        </div>
-    `;
-    
-    conteneur.insertAdjacentHTML('beforeend', carteHTML);
-});
+        `;
 
-        
-        initialiserFiltres();
+        conteneur.insertAdjacentHTML('beforeend', carteHTML);
+    });
 
-    } catch (erreur) {
-        console.error("Erreur de chargement des tournois : ", erreur);
-        conteneur.innerHTML = '<p style="color: #ff5252; text-align: center;">Erreur de connexion aux serveurs.</p>';
-    }
+    initialiserFiltres();
 }
 
 async function chargerResultats() {
     const conteneur = document.getElementById('results-container');
     if (!conteneur) return;
 
-    conteneur.innerHTML = '<p style="color: white; text-align: center; grid-column: 1 / -1;">Chargement des résultats...</p>';
+    conteneur.innerHTML = '<p style="color: var(--text-secondary); text-align: center; grid-column: 1 / -1; padding: 20px;">Chargement des classements...</p>';
+
+    let listeResultats = [];
 
     try {
-        // On cible une nouvelle collection "Resultats" dans Firestore
         const requete = await getDocs(collection(db, "Resultats"));
-        conteneur.innerHTML = '';
-
-        if (requete.empty) {
-            conteneur.innerHTML = '<p style="color: #bbb; text-align: center; grid-column: 1 / -1;">Aucun résultat récent à afficher.</p>';
-            return;
+        if (!requete.empty) {
+            requete.forEach((doc) => {
+                listeResultats.push({ id: doc.id, ...doc.data() });
+            });
+        } else {
+            listeResultats = DEFAULT_RESULTS;
         }
-
-        requete.forEach((doc) => {
-            const resultat = doc.data();
-
-            const carteHTML = `
-                <div class="result-box">
-                    <span class="winner-badge"><i class="fas fa-crown"></i> WINNER</span>
-                    <h3>${resultat.nom || "Tournoi inconnu"}</h3>
-                    <p class="result-team">${resultat.gagnant || "Gagnant inconnu"}</p>
-                    <p class="result-score">Score : ${resultat.score || "Non communiqué"}</p>
-                </div>
-            `;
-            
-            conteneur.insertAdjacentHTML('beforeend', carteHTML);
-        });
-
     } catch (erreur) {
-        console.error("Erreur de chargement des résultats : ", erreur);
-        conteneur.innerHTML = '<p style="color: #ff5252; text-align: center; grid-column: 1 / -1;">Erreur de connexion.</p>';
+        console.warn("Firestore non accessible pour les résultats, utilisation des données locales :", erreur);
+        listeResultats = DEFAULT_RESULTS;
     }
+
+    conteneur.innerHTML = '';
+
+    if (listeResultats.length === 0) {
+        conteneur.innerHTML = '<p style="color: var(--text-muted); text-align: center; grid-column: 1 / -1;">Aucun résultat récent disponible.</p>';
+        return;
+    }
+
+    listeResultats.forEach((resultat) => {
+        const carteHTML = `
+            <div class="result-box">
+                <span class="winner-badge"><i class="fas fa-crown"></i> VICTOIRE</span>
+                <h3>${resultat.nom || "Tournoi Majeur"}</h3>
+                <p class="result-team"><i class="fas fa-trophy"></i> ${resultat.gagnant || "Team Wyvern"}</p>
+                <p class="result-score">${resultat.score || "Top 1 Européen"}</p>
+            </div>
+        `;
+        conteneur.insertAdjacentHTML('beforeend', carteHTML);
+    });
 }
 
 function initialiserFiltres() {
@@ -127,21 +134,15 @@ function initialiserFiltres() {
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            
             tabs.forEach(t => t.classList.remove('active'));
-            
             tab.classList.add('active');
 
             const cible = tab.getAttribute('data-tab');
 
-            
             cards.forEach(card => {
-                if (cible === 'all' || card.getAttribute('data-game') === cible) {
+                const game = card.getAttribute('data-game');
+                if (cible === 'all' || game === cible) {
                     card.style.display = 'block';
-                    
-                    card.style.animation = 'none';
-                    card.offsetHeight;
-                    card.style.animation = null;
                 } else {
                     card.style.display = 'none';
                 }
@@ -150,7 +151,7 @@ function initialiserFiltres() {
     });
 }
 
-
+// Lancement au chargement du DOM
 document.addEventListener('DOMContentLoaded', () => {
     chargerTournois();
     chargerResultats();

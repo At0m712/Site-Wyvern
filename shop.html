@@ -3,40 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Boutique | Wyvern</title>
-    <meta name="description" content="Page Boutique">
+    <title>Boutique Officielle | Wyvern E-sport</title>
+    <meta name="description" content="Boutique officielle de Wyvern E-sport - Maillots officiels, vestes, hoodies et accessoires esport.">
     <meta name="author" content="Mathis ALLEWEIRELDT">
-    <link rel="icon" type="image" href="Assets/images/logowyvern.png">
+    <link rel="icon" type="image/png" href="Assets/images/logowyvern.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="Styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="JavaScript/scripts.js" defer></script>
+    <script type="module" src="JavaScript/scripts.js" defer></script>
     <script type="module" src="JavaScript/shop.js" defer></script>
+    <script type="module" src="JavaScript/checkout.js" defer></script>
 </head>
 <body>
 
-    <div class="transparent-header">
-        <button id="language-btn" class="language-btn">Fr</button>
-        <button id="cart-btn" class="cart-btn">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cart-count" class="cart-count">0</span>
-        </button>
-    </div>
+    <!-- Header Supérieur Fixe -->
+    <header class="transparent-header"></header>
 
-    <header class="shop-hero">
-        <h1 id="shop-title">Boutique</h1>
-        <p>L'équipement des champions</p>
-    </header>
-
-    <section id="shop">
-        <div class="shop-grid" id="shop-container">
-            
+    <main>
+        <div class="shop-hero">
+            <h1 id="shop-title">Boutique Officielle</h1>
+            <p>Portez les couleurs des champions. Textiles haute performance et accessoires exclusifs.</p>
         </div>
-    </section>
 
-    
-<div id="navbar-container"></div>
-<div id="cart-modal"></div>
+        <section id="shop">
+            <div class="shop-grid" id="shop-container">
+                <!-- Articles injectés dynamiquement via shop.js -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Conteneurs dynamiques -->
+    <div id="navbar-container"></div>
+    <div id="modal-settings"></div>
+    <div id="cart-modal"></div>
+
 </body>
 </html>

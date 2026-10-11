@@ -3,76 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Pull | Wyvern</title>
-    <meta name="description" content="Page Produit_pull">
+    <title>Veste Officielle | Wyvern E-sport</title>
+    <meta name="description" content="Achetez la veste zippée officielle de compétition Wyvern E-sport.">
     <meta name="author" content="Mathis ALLEWEIRELDT">
-    <link rel="icon" type="image" href="Assets/images/logowyvern.png">
+    <link rel="icon" type="image/png" href="Assets/images/logowyvern.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="Styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="JavaScript/scripts.js" defer></script>
+    <script type="module" src="JavaScript/scripts.js" defer></script>
     <script type="module" src="JavaScript/produit.js" defer></script>
     <script type="module" src="JavaScript/checkout.js" defer></script>
 </head>
 <body>
 
-    <div class="transparent-header">
-        <button id="language-btn" class="language-btn">Fr</button>
-        <button id="cart-btn" class="cart-btn">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cart-count" class="cart-count">0</span>
-        </button>
-    </div>
+    <!-- Header Supérieur Fixe -->
+    <header class="transparent-header"></header>
 
-    <section class="product-showcase">
-        
+    <main>
+        <section class="product-showcase">
             
-       <div class="product-image-box carousel-wrapper">
-    <img src="Assets/Produit/vestenoir_F.png" class="prod-img active" alt="T-shirt Face">
-    
-    <img src="Assets/Produit/vestenoir_B.png" class="prod-img" alt="T-shirt Dos">
-    
-    <button class="mini-arrow prev">&lt;</button>
-    <button class="mini-arrow next">&gt;</button>
-</div>
-
-
-
-        <div class="product-info-box">
-            <a href="shop.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour à la boutique</a>
-            
-            <h1 id="product-title2" class="product-main-title">Veste Wyvern</h1>
-            <span id="product-price2" class="product-main-price">104.99€</span>
-            
-            <p id="product-description" class="product-desc">
-                Cette veste officielle affiche fièrement le logo Wyvern brodé. 
-                Visière courbée, réglable à l'arrière pour un confort optimal en toute situation.
-            </p>
-            
-            <div class="size-selector-group">
-                <label for="size" id="size-label" class="size-label">Choisir une taille :</label>
-                <select id="size" name="size" class="custom-select">
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
+            <!-- Galerie photo Face / Dos -->
+            <div class="product-image-box carousel-wrapper">
+                <img src="Assets/Produit/vestenoir_F.png" class="prod-img active" alt="Veste Wyvern Face">
+                <img src="Assets/Produit/vestenoir_B.png" class="prod-img" alt="Veste Wyvern Dos">
+                
+                <button class="mini-arrow prev" aria-label="Photo précédente">&lt;</button>
+                <button class="mini-arrow next" aria-label="Photo suivante">&gt;</button>
             </div>
-            
-            <button class="add-to-cart big-cart-btn" 
-                    data-id="Veste Wyvern"
-                    data-product="Veste Wyvern" 
-                    data-price="104.99" 
-                    id="add-to-cart-btn">
-                <i class="fas fa-plus"></i> <span id="add-to-cart-text">Ajouter au panier</span>
-            </button>
-        </div>
 
-    </section>
+            <!-- Détails du produit -->
+            <div class="product-info-box">
+                <a href="shop.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Retour à la boutique
+                </a>
+                
+                <h1 id="product-title2" class="product-main-title">Veste Zippée Wyvern</h1>
+                <span id="product-price2" class="product-main-price">104.99€</span>
+                
+                <p id="product-description" class="product-desc">
+                    Cette veste officielle à capuche affiche fièrement le blason Wyvern brodé sur la poitrine. 
+                    Confectionnée en molleton technique thermorégulateur, avec fermeture zippée renforcée, poches latérales zippées et finitions premium pour un confort thermique absolu sur scène.
+                </p>
+                
+                <div class="size-selector-group">
+                    <label for="size" id="size-label" class="size-label">Sélectionner une taille :</label>
+                    <select id="size" name="size" class="custom-select">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                
+                <button class="add-to-cart big-cart-btn" 
+                        data-id="Veste Wyvern"
+                        data-product="Veste Zippée Wyvern" 
+                        data-price="104.99" 
+                        id="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> 
+                    <span id="add-to-cart-text">Ajouter au panier</span>
+                </button>
+            </div>
 
-    
-<div id="navbar-container"></div>
-<div id="cart-modal"></div>
+        </section>
+    </main>
+
+    <!-- Conteneurs dynamiques -->
+    <div id="navbar-container"></div>
+    <div id="modal-settings"></div>
+    <div id="cart-modal"></div>
+
 </body>
 </html>

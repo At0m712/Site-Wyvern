@@ -3,81 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Structure E-sport | Wyvern</title>
-    <meta name="description" content="Page Acceuil">
+    <title>Structure E-sport | Wyvern</title>
+    <meta name="description" content="Wyvern E-sport - Structure compétitive française sur Fortnite, Valorant et Overwatch.">
     <meta name="author" content="Mathis ALLEWEIRELDT">
-    <link rel="icon" type="image" href="Assets/images/logowyvern.png">
+    <link rel="icon" type="image/png" href="Assets/images/logowyvern.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="Styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="JavaScript/scripts.js" defer></script>
+    <script type="module" src="JavaScript/scripts.js" defer></script>
 </head>
 <body>
-    <header></header>    
 
-    <div class="transparent-header">
-        <button id="language-btn" class="language-btn" >Fr</button>
-        <button id="settings-btn" class="settings-btn">
-            <i class="fas fa-cog"></i>     
-        </button>
-    </div>
+    <!-- Header Supérieur Fixe -->
+    <header class="transparent-header"></header>
 
-    <section id="accueil" class="hero-section">
-        <div class="hero-text">
-            <h2 id="welcome-title">Bienvenue chez Wyvern E-sport</h2>
-            <p id="welcome-text">Rejoignez la nouvelle génération de compétiteurs E-sport !</p>
-            <br>
-            <br>
-            <a href="#about" class="btn" id="learn-more-btn">En savoir plus</a>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <h2 id="about-title">À Propos de Nous</h2>
-        <p id="about-text">Nous sommes une structure e-sport française dédiée à la compétition de haut niveau dans plusieurs jeux. Notre objectif est de former les meilleures équipes et de créer une communauté dynamique autour des jeux vidéo compétitifs.</p>
-    </section>
-    
-    <section id="teams" class="teams-section">
-        <h2 id="teams-title">Nos Équipes</h2>
-        <div class="teams-container">
-            <div class="team-card">
-                <a href="fortnite.html">
-                <img src="Assets/image_joueurs/bob.png">
-                </a>
-                <h3 id="fortnite-title">Fortnite</h3>
+    <main>
+        <!-- Hero Section -->
+        <section id="accueil" class="hero-section">
+            <div class="hero-text">
+                <img src="Assets/images/logowyvern.png" alt="Emblème Wyvern E-sport" class="hero-logo-img">
+                <h1 id="welcome-title">Bienvenue chez Wyvern E-sport</h1>
+                <p id="welcome-text">Rejoignez la nouvelle génération de compétiteurs E-sport !</p>
+                <div class="hero-actions">
+                    <a href="#about" class="btn btn-primary" id="learn-more-btn">
+                        <i class="fas fa-info-circle"></i> En savoir plus
+                    </a>
+                    <a href="shop.html" class="btn btn-secondary">
+                        <i class="fas fa-shopping-bag"></i> Boutique
+                    </a>
+                    <a href="tournois.html" class="btn btn-secondary">
+                        <i class="fas fa-trophy"></i> Tournois
+                    </a>
+                </div>
             </div>
-            <div class="team-card">
-                <a href="fortnite.html">
-                <img src="Assets/image_joueurs/bob.png">
-                </a>
-                <h3 id="rocketleague-title">Rocket League</h3>
-            </div>
-            <div class="team-card">
-                <a href="fortnite.html">
-                <img src="Assets/image_joueurs/bob.png">
-                </a>
-                <h3 id="smash-title">Smash</h3>
-            </div>
-            <div class="team-card">
-                <a href="fortnite.html">
-                <img src="Assets/image_joueurs/bob.png">
-                </a>
-                <h3 id="multiversus-title">MultiVersus</h3>
-            </div>
-            <div class="team-card">
-                <a href="valorant.html">
-                <img src="Assets/image_joueurs/bob.png">
-                </a>
-                <h3 id="Valorant-title">Overwatch</h3>
-            </div>
-        </div>
-    </section>
+        </section>
 
+        <!-- Section À Propos -->
+        <section id="about" class="about-section">
+            <h2 id="about-title">À Propos de Nous</h2>
+            <p id="about-text">Nous sommes une structure e-sport française dédiée à la compétition de haut niveau dans plusieurs jeux. Notre objectif est de former les meilleures équipes et de créer une communauté dynamique autour des jeux vidéo compétitifs.</p>
+        </section>
 
+        <!-- Section Équipes / Rosters -->
+        <section id="teams" class="teams-section">
+            <h2 id="teams-title">Nos Équipes</h2>
+            <p style="max-width: 600px; margin: 0 auto 30px auto; color: var(--text-muted);">Découvrez nos rosters compétitifs engagés sur les scènes majeures de l'esport.</p>
+            
+            <div class="teams-container">
+                <div class="team-card">
+                    <div class="team-card-image">
+                        <img src="Assets/images/Fortnite-logo.svg" alt="Logo Fortnite" loading="lazy">
+                    </div>
+                    <h3 id="fortnite-title">Fortnite</h3>
+                    <p id="fortnite-text">Roster compétitif Battle Royale</p>
+                    <a href="fortnite.html" class="team-link">Voir le roster &rarr;</a>
+                </div>
 
-<div id="navbar-container"></div>
-<div id="modal-settings"></div>
+                <div class="team-card">
+                    <div class="team-card-image">
+                        <img src="Assets/images/Valorant-logo.svg" alt="Logo Valorant" loading="lazy">
+                    </div>
+                    <h3 id="Valorant-title">Valorant</h3>
+                    <p id="Valorant-text">Équipe tactique VCT</p>
+                    <a href="valorant.html" class="team-link">Voir le roster &rarr;</a>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-card-image">
+                        <img src="Assets/images/Overwatch-logo.svg" alt="Logo Overwatch" loading="lazy">
+                    </div>
+                    <h3 id="overwatch-title">Overwatch</h3>
+                    <p>Section compétitive OW2</p>
+                    <a href="tournois.html" class="team-link">Voir les tournois &rarr;</a>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-card-image">
+                        <img src="Assets/images/logowyvern.png" alt="Wyvern Rocket League" loading="lazy">
+                    </div>
+                    <h3 id="rocketleague-title">Rocket League</h3>
+                    <p id="rocketleague-text">Division 3v3 Supersonic</p>
+                    <a href="tournois.html" class="team-link">En savoir plus &rarr;</a>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-card-image">
+                        <img src="Assets/images/logowyverngris.png" alt="Wyvern Smash" loading="lazy">
+                    </div>
+                    <h3 id="smash-title">Smash Bros</h3>
+                    <p id="smash-text">Division Ultimate</p>
+                    <a href="tournois.html" class="team-link">En savoir plus &rarr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Conteneurs dynamiques (Navigation, Modales, Panier) -->
+    <div id="navbar-container"></div>
+    <div id="modal-settings"></div>
+    <div id="cart-modal"></div>
 
 </body>
 </html>

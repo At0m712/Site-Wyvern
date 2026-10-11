@@ -1,80 +1,67 @@
-// ============================================================
-// 🔐 AUTH.JS - Avec Vérification Email
-// ============================================================
+/* ============================================================
+   WYVERN E-SPORT - AUTHENTIFICATION (FIREBASE AUTH)
+   JavaScript/auth.js
+   ============================================================ */
 
-// 1. On importe l'application Firebase depuis notre nouveau fichier central
 import { app } from "./firebase-config.js";
-
-// 2. On importe tous les outils d'authentification
 import { 
     getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, 
     onAuthStateChanged, signOut, sendEmailVerification,
     GoogleAuthProvider, OAuthProvider, signInWithPopup 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-// Initialisation de l'authentification avec notre app centralisée
 const auth = getAuth(app);
 
 const authForms = document.getElementById('auth-forms');  
-const userProfile = document.getElementById('user-profile');     // Profil validé
-const verifyEmailCard = document.getElementById('verify-email-card'); // Écran "Vérifie tes mails"
+const userProfile = document.getElementById('user-profile');
+const verifyEmailCard = document.getElementById('verify-email-card');
 
 const loginForm = document.getElementById('login-form');
 const signupForm = document.getElementById('signup-form');
 
-// Champs et Boutons
 const toggleSignupBtn = document.getElementById('toggle-signup');
 const toggleLoginBtn = document.getElementById('toggle-login');
 const logoutBtn = document.getElementById('logout-btn');
 const errorMsg = document.getElementById('auth-error-msg');
 const userEmailDisplay = document.getElementById('user-email-display');
 
-// Nouveaux éléments pour la vérification
 const verifyEmailAddress = document.getElementById('verify-email-address');
 const resendEmailBtn = document.getElementById('resend-email-btn');
 const reloadPageBtn = document.getElementById('reload-page-btn');
 const logoutVerifyBtn = document.getElementById('logout-verify-btn');
 const verifyMsg = document.getElementById('verify-msg');
 
-
-// --- 1. GESTION DE L'ÉTAT INTELLIGENTE ---
+// --- 1. ÉTAT DE L'UTILISATEUR ---
 onAuthStateChanged(auth, (user) => {
-    // On cache tout par défaut pour éviter les conflits
     if(authForms) authForms.classList.add('hidden');
     if(userProfile) userProfile.classList.add('hidden');
     if(verifyEmailCard) verifyEmailCard.classList.add('hidden');
 
     if (user) {
-        console.log("Utilisateur connecté :", user.email);
-        
-        if (user.emailVerified) {
-            // ✅ CAS 1 : Connecté ET Email Vérifié -> Affiche le profil
+        if (user.emailVerified || user.providerData.some(p => p.providerId === 'google.com' || p.providerId === 'oidc.discord')) {
+            // Utilisateur connecté et validé
             if(userProfile) {
                 userProfile.classList.remove('hidden');
-                if(userEmailDisplay) userEmailDisplay.textContent = user.email;
+                if(userEmailDisplay) userEmailDisplay.textContent = user.email || user.displayName;
             }
         } else {
-            // ⚠️ CAS 2 : Connecté MAIS Email NON Vérifié -> Affiche "Vérifiez vos mails"
+            // Email en attente de vérification
             if(verifyEmailCard) {
                 verifyEmailCard.classList.remove('hidden');
                 if(verifyEmailAddress) verifyEmailAddress.textContent = user.email;
             }
         }
-
     } else {
-        // ❌ CAS 3 : Déconnecté -> Affiche le formulaire de connexion
-        console.log("Utilisateur déconnecté");
+        // Déconnecté
         if(authForms) {
             authForms.classList.remove('hidden');
-            // Réinitialise l'affichage sur le login
             if(loginForm) loginForm.classList.remove('hidden');
             if(signupForm) signupForm.classList.add('hidden');
         }
     }
 });
 
-
-// --- 2. INSCRIPTION + ENVOI EMAIL ---
+// --- 2. INSCRIPTION ---
 if(signupForm) {
     signupForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -83,12 +70,9 @@ if(signupForm) {
 
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const user = userCredential.user;
-                // 🔥 Envoi immédiat de l'email de vérification
-                sendEmailVerification(user)
+                sendEmailVerification(userCredential.user)
                     .then(() => {
-                        console.log("Email de vérification envoyé !");
-                        // L'état va changer automatiquement grâce à onAuthStateChanged
+                        console.log("Email de vérification envoyé");
                     });
             })
             .catch((error) => {
@@ -97,8 +81,7 @@ if(signupForm) {
     });
 }
 
-
-// --- 3. CONNEXION CLASSIQUE ---
+// --- 3. CONNEXION ---
 if(loginForm) {
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -106,60 +89,49 @@ if(loginForm) {
         const password = document.getElementById('login-password').value;
 
         signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // onAuthStateChanged gérera la suite (Vérifié ou pas)
-            })
             .catch((error) => {
                 showError(error.code);
             });
     });
 }
 
-
-// --- 4. GESTION BOUTONS VÉRIFICATION ---
-
-// Renvoyer l'email
+// --- 4. GESTION VÉRIFICATION EMAIL ---
 if(resendEmailBtn) {
     resendEmailBtn.addEventListener('click', () => {
         const user = auth.currentUser;
         if(user) {
             sendEmailVerification(user).then(() => {
-                verifyMsg.textContent = "Email renvoyé ! Vérifiez vos spams.";
+                verifyMsg.textContent = "Email renvoyé ! Vérifiez votre boîte de réception.";
                 verifyMsg.classList.remove('hidden');
-                verifyMsg.style.color = "#4caf50"; // Vert
+                verifyMsg.style.color = "var(--wyvern-green)";
             }).catch((error) => {
-                verifyMsg.textContent = "Erreur (trop rapide ?) : " + error.message;
+                verifyMsg.textContent = "Erreur : " + error.message;
                 verifyMsg.classList.remove('hidden');
-                verifyMsg.style.color = "#d32f2f";
+                verifyMsg.style.color = "var(--wyvern-red)";
             });
         }
     });
 }
 
-// Rafraîchir la page (pour vérifier si l'user a cliqué sur le lien)
 if(reloadPageBtn) {
     reloadPageBtn.addEventListener('click', () => {
         window.location.reload();
     });
 }
 
-// Se déconnecter depuis l'écran de vérification
 if(logoutVerifyBtn) {
     logoutVerifyBtn.addEventListener('click', () => {
         signOut(auth);
     });
 }
 
-
-// --- 5. DÉCONNEXION ---
 if(logoutBtn) {
     logoutBtn.addEventListener('click', () => {
         signOut(auth);
     });
 }
 
-
-// --- 6. NAVIGATION LOGIN / SIGNUP ---
+// --- 5. BASCULE ENTRE CONNEXION ET INSCRIPTION ---
 if(toggleSignupBtn) {
     toggleSignupBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -178,36 +150,33 @@ if(toggleLoginBtn) {
     });
 }
 
-
-// --- 7. OEIL MOT DE PASSE ---
-const togglePasswordIcons = document.querySelectorAll('.toggle-password');
-togglePasswordIcons.forEach(icon => {
+// --- 6. AFFICHAGE / MASQUAGE DU MOT DE PASSE ---
+document.querySelectorAll('.toggle-password').forEach(icon => {
     icon.addEventListener('click', function() {
         const targetId = this.getAttribute('data-target');
         const input = document.getElementById(targetId);
-        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
-        input.setAttribute('type', type);
-        this.classList.toggle('fa-eye');
-        this.classList.toggle('fa-eye-slash');
+        if (!input) return;
+        const isPassword = input.getAttribute('type') === 'password';
+        input.setAttribute('type', isPassword ? 'text' : 'password');
+        this.classList.toggle('fa-eye', !isPassword);
+        this.classList.toggle('fa-eye-slash', isPassword);
     });
 });
 
-
-// Fonction Erreur
+// Messages d'erreurs
 function showError(code) {
     if(!errorMsg) return;
     errorMsg.classList.remove('hidden');
-    errorMsg.style.display = 'block'; // Force l'affichage si .hidden utilise display:none
-    
+
     switch (code) {
         case 'auth/email-already-in-use':
-            errorMsg.textContent = "Cet email est déjà utilisé.";
+            errorMsg.textContent = "Cet email est déjà associé à un compte.";
             break;
         case 'auth/invalid-email':
             errorMsg.textContent = "Format d'email invalide.";
             break;
         case 'auth/weak-password':
-            errorMsg.textContent = "Mot de passe trop court (8 min).";
+            errorMsg.textContent = "Le mot de passe doit comporter au moins 8 caractères.";
             break;
         case 'auth/wrong-password':
         case 'auth/user-not-found':
@@ -216,52 +185,32 @@ function showError(code) {
             errorMsg.textContent = "Email ou mot de passe incorrect.";
             break;
         default:
-            errorMsg.textContent = "Erreur : " + code;
+            errorMsg.textContent = "Erreur de connexion (" + code + ")";
     }
 }
- // ============================================================
-// 🌍 CONNEXION SOCIALE (Google & Discord)
-// ============================================================
 
+// --- 7. CONNEXION SOCIALE ---
 const googleBtn = document.getElementById('google-login-btn');
 const discordBtn = document.getElementById('discord-login-btn');
 
-console.log("Bouton Google trouvé dans le HTML ?", googleBtn);
-console.log("Bouton Discord trouvé dans le HTML ?", discordBtn);
-
-// --- CONNEXION GOOGLE ---
 if (googleBtn) {
     googleBtn.addEventListener('click', (e) => {
-        e.preventDefault(); // Empêche la page de se recharger
-        console.log("🔴 CLIC SUR LE BOUTON GOOGLE DÉTECTÉ !");
-        
+        e.preventDefault();
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                console.log("✅ Connexion Google réussie :", result.user.email);
-            })
             .catch((error) => {
-                console.error("❌ Erreur Google :", error.message);
                 showError(error.code);
             });
     });
 }
 
-// --- CONNEXION DISCORD ---
 if (discordBtn) {
     discordBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log("🟣 CLIC SUR LE BOUTON DISCORD DÉTECTÉ !");
-        
         const discordProvider = new OAuthProvider('oidc.discord');
         signInWithPopup(auth, discordProvider)
-            .then((result) => {
-                console.log("✅ Connexion Discord réussie :", result.user.email);
-            })
             .catch((error) => {
-                console.error("❌ Erreur Discord :", error.message);
                 showError(error.code);
             });
     });
 }
-

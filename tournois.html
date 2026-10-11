@@ -3,61 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Tournois | Wyvern</title>
-    <meta name="description" content="Page Tournois">
+    <title>Tournois | Wyvern E-sport</title>
+    <meta name="description" content="Calendrier des tournois et résultats officiels de Wyvern E-sport.">
     <meta name="author" content="Mathis ALLEWEIRELDT">
-    <link rel="icon" type="image" href="Assets/images/logowyvern.png">
+    <link rel="icon" type="image/png" href="Assets/images/logowyvern.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="Styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="JavaScript/scripts.js" defer></script>
+    <script type="module" src="JavaScript/scripts.js" defer></script>
     <script type="module" src="JavaScript/tournois.js" defer></script>
 </head>
 <body>
 
-    <div class="transparent-header">
-        <button id="language-btn" class="language-btn">Fr</button>
-        <button id="settings-btn" class="settings-btn">
-        <i class="fas fa-cog"></i>
-    </button>
-    </div>
+    <!-- Header Supérieur Fixe -->
+    <header class="transparent-header"></header>
 
-    <header class="tournament-hero">
-        <h1 id="tournaments-title">Tournois</h1>
-    </header>
-
-    <section id="tournois">
-    <div class="section-header">
-        <h2 id="upcoming-tournaments-title">Choisir votre Jeu</h2>
-    </div>
-
-    <div class="game-selector tab-container">
-        <div class="game-tab tab active" data-tab="all" id="tab-all">Tous</div>
-        <div class="game-tab tab" data-tab="fortnite" id="tab-fortnite">
-            <img src="Assets/images/Fortnite-logo.svg" alt="Fortnite" class="game-logo"> Fortnite
+    <main>
+        <div class="tournament-hero">
+            <h1 id="tournaments-title">Tournois & Compétitions</h1>
+            <p>Retrouvez toutes les échéances officielles et inscrivez-vous aux tournois organisés par la structure.</p>
         </div>
-        <div class="game-tab tab" data-tab="overwatch" id="tab-overwatch">
-            <img src="Assets/images/Overwatch-logo.svg" alt="Overwatch" class="game-logo"> Overwatch
-        </div>
-        <div class="game-tab tab" data-tab="valorant" id="tab-valorant">
-            <img src="Assets/images/Valorant-logo.svg" alt="Valorant" class="game-logo"> Valorant
-        </div>
-    </div>
 
-    <div id="tournaments-container"></div> 
-</section>
+        <section id="tournois">
+            <div class="section-header">
+                <h2 id="upcoming-tournaments-title">Choisir votre Jeu</h2>
+            </div>
 
-    <section id="resultats-tournois" class="results-section">
-        <h2 id="tournament-results-title" class="results-title">Résultats des tournois</h2>
-        
-        <div class="results-grid" id="results-container">
-            
-        </div>
-    </section>
+            <!-- Filtres par jeu -->
+            <div class="game-selector tab-container">
+                <button class="game-tab active" data-tab="all" id="tab-all">
+                    <i class="fas fa-th-large"></i> Tous
+                </button>
+                <button class="game-tab" data-tab="fortnite" id="tab-fortnite">
+                    <img src="Assets/images/Fortnite-logo.svg" alt="Fortnite" class="game-logo"> Fortnite
+                </button>
+                <button class="game-tab" data-tab="overwatch" id="tab-overwatch">
+                    <img src="Assets/images/Overwatch-logo.svg" alt="Overwatch" class="game-logo"> Overwatch
+                </button>
+                <button class="game-tab" data-tab="valorant" id="tab-valorant">
+                    <img src="Assets/images/Valorant-logo.svg" alt="Valorant" class="game-logo"> Valorant
+                </button>
+            </div>
 
+            <!-- Conteneur des cartes de tournois -->
+            <div id="tournaments-container"></div>
+        </section>
 
-<div id="navbar-container"></div>
-<div id="modal-settings"></div>
+        <!-- Section Résultats -->
+        <section id="resultats-tournois" class="results-section">
+            <h2 id="tournament-results-title" class="results-title">Palmarès & Résultats</h2>
+            <div class="results-grid" id="results-container"></div>
+        </section>
+    </main>
+
+    <!-- Conteneurs dynamiques -->
+    <div id="navbar-container"></div>
+    <div id="modal-settings"></div>
+    <div id="cart-modal"></div>
+
 </body>
 </html>

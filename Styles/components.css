@@ -1,0 +1,752 @@
+/* ============================================================
+   WYVERN E-SPORT - COMPOSANTS MODULAIRES
+   Styles/components.css
+   ============================================================ */
+
+/* --- 1. HEADER FIXE SUPÉRIEUR --- */
+.transparent-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background-color: var(--bg-header);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: var(--z-header);
+    border-bottom: 1px solid var(--border-thin);
+    transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Logo central ou brand */
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: transform var(--transition-fast);
+}
+
+.header-brand:hover {
+    transform: scale(1.03);
+}
+
+.header-brand img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-brand-text {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+}
+
+.header-brand-text span {
+    color: var(--wyvern-red);
+}
+
+/* Boutons d'action du header */
+.language-btn {
+    background-color: var(--wyvern-red);
+    color: #ffffff;
+    font-family: var(--font-title);
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    box-shadow: var(--shadow-sm);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.language-btn:hover {
+    background-color: var(--wyvern-red-hover);
+    transform: translateY(-1px);
+}
+
+.icon-header-btn {
+    background: transparent;
+    color: var(--text-main);
+    font-size: 1.35rem;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.icon-header-btn:hover {
+    color: var(--wyvern-red);
+    transform: scale(1.08);
+}
+
+.settings-btn i {
+    transition: transform 0.4s ease;
+}
+
+.settings-btn:hover i {
+    transform: rotate(90deg);
+}
+
+.cart-btn {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: var(--wyvern-red);
+    color: #ffffff;
+    border-radius: var(--radius-full);
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* --- 2. BARRE DE NAVIGATION FLOTTANTE --- */
+.floating-navbar {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    max-width: 500px;
+    background-color: var(--bg-navbar);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 16px;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    z-index: var(--z-floatingbar);
+    transition: all var(--transition-base);
+}
+
+.nav-item {
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.nav-item i {
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+    transition: transform var(--transition-fast);
+}
+
+.nav-item:hover {
+    color: var(--text-main);
+}
+
+.nav-item:hover i {
+    transform: translateY(-2px);
+}
+
+.nav-item.active {
+    color: var(--wyvern-red);
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 3px;
+    background-color: var(--wyvern-red);
+    border-radius: var(--radius-full);
+}
+
+/* --- 3. BOUTONS STYLISÉS --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 28px;
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--wyvern-red);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--wyvern-red-hover);
+    box-shadow: 0 0 20px var(--wyvern-red-glow);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-main);
+    border-color: var(--border-strong);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-card-hover);
+    border-color: var(--text-main);
+    transform: translateY(-2px);
+}
+
+.big-cart-btn {
+    background-color: var(--wyvern-red);
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: var(--shadow-sm);
+}
+
+.big-cart-btn:hover {
+    background-color: var(--wyvern-red-hover);
+    box-shadow: 0 0 25px var(--wyvern-red-glow);
+    transform: translateY(-2px);
+}
+
+.big-cart-btn:disabled {
+    background-color: #555555 !important;
+    border-color: #555555 !important;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* --- 4. PANIER (MODAL DRAWER) --- */
+.cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    background-color: var(--bg-modal);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: var(--z-modal);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.6);
+    border-left: 1px solid var(--border-color);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform var(--transition-smooth), visibility var(--transition-smooth);
+}
+
+.cart.open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+/* Backdrop sombre pour le panier */
+.cart-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: calc(var(--z-modal) - 1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.cart-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-header {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-thin);
+}
+
+.cart-header h2 {
+    font-size: 2rem;
+    margin: 0;
+    color: var(--text-main);
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.close-btn:hover {
+    color: var(--wyvern-red);
+    transform: scale(1.15);
+}
+
+.cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.cart-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    transition: border-color var(--transition-fast);
+}
+
+.cart-item:hover {
+    border-color: var(--border-strong);
+}
+
+.cart-item-info {
+    text-align: left;
+    flex: 1;
+}
+
+.cart-item-info strong {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.cart-item-meta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.cart-item-price {
+    color: var(--wyvern-red);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-qty-btn {
+    background: var(--bg-card-hover);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+}
+
+.cart-qty-btn:hover {
+    background: var(--wyvern-red);
+    color: #ffffff;
+    border-color: var(--wyvern-red);
+}
+
+.cart-item-qty {
+    min-width: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.remove-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 6px;
+    transition: color var(--transition-fast);
+}
+
+.remove-btn:hover {
+    color: var(--wyvern-red);
+}
+
+.cart-empty-message {
+    height: 100%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    text-align: center;
+    gap: 16px;
+}
+
+.cart-empty-message i {
+    font-size: 3.5rem;
+    color: var(--border-strong);
+}
+
+.cart-footer {
+    padding: 24px;
+    border-top: 1px solid var(--border-thin);
+    background: var(--bg-card);
+}
+
+.total-price {
+    font-size: 1.8rem;
+    font-family: var(--font-title);
+    letter-spacing: 1px;
+    color: var(--text-main);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.total-price span {
+    color: var(--wyvern-red);
+    font-weight: bold;
+}
+
+/* --- 5. MODAL PARAMÈTRES --- */
+.settings-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: var(--z-modal);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.25s ease-out;
+}
+
+.settings-modal.active {
+    display: flex;
+}
+
+.settings-content {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 480px;
+    padding: 36px 30px;
+    position: relative;
+    animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.settings-content .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.settings-content h2 {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin-bottom: 28px;
+    text-align: center;
+    position: relative;
+}
+
+.settings-content h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--wyvern-red);
+    margin: 10px auto 0 auto;
+    border-radius: var(--radius-full);
+}
+
+.settings-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 16px;
+    background: var(--bg-body);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all var(--transition-fast);
+}
+
+.settings-option:hover {
+    border-color: var(--wyvern-red);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+}
+
+.settings-option span {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.settings-option i {
+    font-size: 1.3rem;
+    color: var(--wyvern-red);
+}
+
+/* --- 6. MODAL ACTUALITÉS --- */
+.modal {
+    position: fixed;
+    z-index: var(--z-modal);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.news-modal-content {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 680px;
+    color: var(--text-main);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.news-modal-content .close-news-btn {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 2rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+    transition: color var(--transition-fast);
+}
+
+.news-modal-content .close-news-btn:hover {
+    color: var(--wyvern-red);
+}
+
+#modal-news-title {
+    color: var(--wyvern-red);
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.modal-news-date {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#modal-news-body {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* --- 7. FORMULAIRES & INPUTS --- */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.input-group input, .custom-select {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input-group input:focus, .custom-select:focus {
+    border-color: var(--wyvern-red);
+    box-shadow: 0 0 0 3px var(--wyvern-red-light);
+}
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    padding-right: 44px !important;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    transition: color var(--transition-fast);
+}
+
+.toggle-password:hover {
+    color: var(--wyvern-red);
+}
+
+.error-msg {
+    background-color: var(--wyvern-red-light);
+    border: 1px solid var(--wyvern-red);
+    color: #ff5252;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    margin-top: 18px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* --- TOAST NOTIFICATIONS --- */
+.wyvern-toast {
+    position: fixed;
+    top: 90px;
+    right: 24px;
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--wyvern-red);
+    padding: 14px 22px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    z-index: var(--z-toast);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    animation: toastIn 0.3s ease-out;
+}
+
+.wyvern-toast.success {
+    border-color: var(--wyvern-green);
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,223 @@
+/* ============================================================
+   WYVERN E-SPORT - RESPONSIVE & ADAPTATION MULTI-ÉCRANS
+   Styles/responsive.css
+   ============================================================ */
+
+/* --- TABLETTES ET PETITS ÉCRANS (<= 1024px) --- */
+@media (max-width: 1024px) {
+    .product-showcase {
+        gap: 36px;
+    }
+
+    .teams-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .news-grid, .shop-grid, .results-grid {
+        gap: 20px;
+    }
+}
+
+/* --- SMARTPHONES & PETITES TABLETTES (<= 768px) --- */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 110px;
+    }
+
+    .transparent-header {
+        padding: 0 16px;
+        height: 64px;
+    }
+
+    .header-brand-text {
+        font-size: 1.25rem;
+    }
+
+    .header-brand img {
+        height: 32px;
+    }
+
+    .floating-navbar {
+        bottom: 16px;
+        padding: 8px 12px;
+        max-width: 440px;
+        /* Support encoche iPhone */
+        margin-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    .nav-item {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+    }
+
+    .nav-item i {
+        font-size: 1.15rem;
+        margin-bottom: 2px;
+    }
+
+    /* Accueil */
+    .hero-section {
+        min-height: 70vh;
+        padding: 80px 16px 40px 16px;
+    }
+
+    .hero-logo-img {
+        width: 120px;
+    }
+
+    .about-section {
+        padding: 60px 16px;
+    }
+
+    .teams-section {
+        padding: 60px 16px;
+    }
+
+    .teams-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    /* Fiche Produit */
+    .product-showcase {
+        grid-template-columns: 1fr;
+        margin: 80px auto 40px auto;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .product-info-box {
+        text-align: center;
+    }
+
+    .product-desc {
+        border-left: none;
+        padding-left: 0;
+        border-top: 2px solid var(--wyvern-red);
+        padding-top: 14px;
+    }
+
+    .product-image-box {
+        min-height: 320px;
+    }
+
+    .size-selector-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .custom-select {
+        max-width: 280px;
+    }
+
+    .big-cart-btn {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    /* Tournois */
+    .card-header-flex {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .card-game-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .tournament-details-card {
+        padding: 20px;
+    }
+
+    .game-selector {
+        gap: 8px;
+    }
+
+    .game-tab {
+        padding: 10px 18px;
+        font-size: 1.15rem;
+    }
+
+    /* Panier Drawer */
+    .cart {
+        max-width: 100%;
+    }
+
+    /* Roster */
+    .carousel-item {
+        padding: 24px 16px;
+    }
+
+    .player-img-wrapper {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+/* --- PETITS SMARTPHONES (<= 480px) --- */
+@media (max-width: 480px) {
+    .header-brand-text span {
+        display: none; /* Cache "E-SPORT" pour garder seulement "WYVERN" */
+    }
+
+    .teams-container {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+    }
+
+    .floating-navbar {
+        width: calc(100% - 20px);
+        bottom: 12px;
+        padding: 6px 8px;
+    }
+
+    .nav-item {
+        padding: 4px 6px;
+        font-size: 0.65rem;
+    }
+
+    .nav-item i {
+        font-size: 1.05rem;
+    }
+
+    .news-modal-content {
+        padding: 24px 18px;
+    }
+
+    .settings-content {
+        padding: 28px 18px;
+    }
+
+    .social-card {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .social-login-buttons {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .mini-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+}
+
+/* --- ACCESSIBILITÉ & PRÉFÉRENCE DE MOUVEMENT RÉDUIT --- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
